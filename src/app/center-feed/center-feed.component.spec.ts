@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeftContainerComponent } from './left-container.component';
+import { CenterFeedComponent } from './center-feed.component';
 
-describe('LeftContainerComponent', () => {
-  let component: LeftContainerComponent;
-  let fixture: ComponentFixture<LeftContainerComponent>;
+describe('CenterFeedComponent', () => {
+  let component: CenterFeedComponent;
+  let fixture: ComponentFixture<CenterFeedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LeftContainerComponent ]
+      declarations: [ CenterFeedComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LeftContainerComponent);
+    fixture = TestBed.createComponent(CenterFeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

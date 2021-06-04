@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { LeftContainerComponent } from './left-container/left-container.component';
+import { CenterFeedComponent } from './center-feed/center-feed.component';
+import { LeftIdentityComponent } from './left-identity/left-identity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LeftContainerComponent
+    CenterFeedComponent,
+    LeftIdentityComponent
   ],
   imports: [
     BrowserModule,
