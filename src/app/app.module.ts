@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CenterFeedComponent } from './center-feed/center-feed.component';
 import { LeftIdentityComponent } from './left-identity/left-identity.component';
+import { CenterBookmarksComponent } from './center-bookmarks/center-bookmarks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CenterFeedComponent,
-    LeftIdentityComponent
+    LeftIdentityComponent,
+    CenterBookmarksComponent
   ],
   imports: [
     BrowserModule,
