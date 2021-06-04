@@ -1,0 +1,142 @@
+/*! CSS Used from: https://b.st-hatena.com/css/v4/bookmark.css?version=4bb643f4ebb85ca735cd112f23d7809ba8d6531d */
+a:focus{outline:thin dotted;}
+a:active,a:hover{outline:0;}
+img{border:0;}
+button{font-family:inherit;font-size:100%;margin:0;}
+button{line-height:normal;}
+button{text-transform:none;}
+button{-webkit-appearance:button;cursor:pointer;}
+button::-moz-focus-inner{border:0;padding:0;}
+h2,h3,li,p,ul{margin:0;padding:0;}
+li,ul{list-style:none;}
+.is-hidden{display:none!important;}
+.twitter-click{background:url(https://b.st-hatena.com/images/v4/public/common/icon-twitter-click.svg?version=66eabb92e6de889d68b4) no-repeat 0;background-size:12px 10px;font-size:12px;margin-left:8px;white-space:nowrap;}
+.list-star-container:empty~.twitter-click{margin-left:0;}
+.readlater-button-text{background-color:transparent;background-image:url(https://b.st-hatena.com/images/v4/public/readlater-button-text.svg?version=91507be2a2cef505179b);background-position:left 3px;background-repeat:no-repeat;background-size:8px 12px;border:none;border-radius:0;color:rgba(70,82,94,.8);line-height:1.6;padding:0 0 0 10px;}
+.readlater-button-text:hover{background-image:url(https://b.st-hatena.com/images/v4/public/readlater-button-active.svg?version=014c68f98468855f5f80);color:#ff7790;}
+.following-bookmark-link{display:inline-block;line-height:1;vertical-align:top;}
+.following-bookmark-icon{border-radius:2px;height:20px;vertical-align:middle;width:20px;}
+.following-bookmark-popup{background:#fff;border:1px solid #d9d9d9;border-radius:2px;-webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,.1);box-shadow:0 1px 1px 0 rgba(0,0,0,.1);-webkit-box-sizing:border-box;box-sizing:border-box;display:none;font-size:13px;left:-7px;line-height:1.2;padding:6px 8px;position:absolute;top:36px;width:220px;z-index:900;}
+.following-bookmark-popup:before{border-color:transparent transparent #d9d9d9;top:-10px;}
+.following-bookmark-popup:after,.following-bookmark-popup:before{border-style:solid;border-width:0 10px 10px;content:"";height:0;left:6px;position:absolute;width:0;}
+.following-bookmark-popup:after{border-color:transparent transparent #fff;top:-8px;}
+.following-bookmark-link:focus+.following-bookmark-popup,.following-bookmark-link:hover+.following-bookmark-popup{display:block;}
+.following-bookmark-username{color:#009ad0;margin:0 8px 2px 0;}
+.following-bookmark-timestamp{color:rgba(70,82,94,.8);letter-spacing:.03em;line-height:1.4;}
+.following-bookmark-text{display:block;}
+.following-bookmark-tags{color:rgba(70,82,94,.8);display:inline;font-size:12px;line-height:1.4;vertical-align:middle;}
+.centerarticle-wrapper a{text-decoration:none;}
+.center-container{-webkit-box-sizing:border-box;box-sizing:border-box;}
+.center-container{-webkit-box-flex:1;-ms-flex-positive:1;-ms-flex-negative:0;-webkit-flex-grow:1;flex-grow:1;-webkit-flex-shrink:0;flex-shrink:0;max-width:568px;padding:25px 16px 0;position:relative;}
+.centerarticle-title{-webkit-box-flex:1;-ms-flex-positive:1;-webkit-flex-grow:1;flex-grow:1;}
+.centerarticle-title{word-wrap:break-word;border-bottom:1px solid #ddd;font-size:100%;overflow-wrap:break-word;padding:0 4px 4px;}
+.centerarticle-users{display:inline-block;font-size:13px;}
+.centerarticle-users a{color:#f94e5b!important;}
+.centerarticle-date-pager{font-size:14px;padding:15px 0;text-align:center;}
+.centerarticle-date-pager{border-bottom:1px solid #ddd;}
+@media (max-width:480px){
+.centerarticle-date-pager{padding:12px 0;}
+}
+.centerarticle-date-pager-list{display:inline-block;}
+.centerarticle-date-pager-list li{border-right:1px solid #999;display:inline-block;line-height:1;padding:0 10px;}
+.centerarticle-date-pager-list li:last-child{border-right:none;}
+.centerarticle-date-pager-list a{color:#009ad0;}
+.centerarticle-date-pager-list a:hover{text-decoration:underline;}
+.centerarticle-waiting{margin-right:8px;}
+.centerarticle-waiting img{vertical-align:middle;}
+.bookmark-item{border-bottom:1px solid #ddd;padding:14px 0 15px 22px;position:relative;}
+@media (max-width:480px){
+.bookmark-item{padding:12px 0 12px 22px;}
+}
+.centerarticle-entry{margin-bottom:4px;}
+@media (max-width:480px){
+.centerarticle-entry{margin:0;}
+}
+.centerarticle-entry-title{word-wrap:break-word;font-size:14.5px;line-height:1.4;margin:0 0 4px;}
+.centerarticle-entry-title a{color:#25282b;}
+.centerarticle-entry-title a:hover{color:#7db4e8;}
+@media (max-width:480px){
+.centerarticle-entry-title{font-size:13px;}
+}
+.centerarticle-entry-favicon{height:14px;left:0;position:absolute;top:16px;width:14px;}
+@media (max-width:480px){
+.centerarticle-entry-favicon{top:13px;}
+}
+.centerarticle-entry-contents{margin:2px 0 0;position:relative;}
+@media (max-width:480px){
+.centerarticle-entry-contents{display:none;}
+}
+.centerarticle-entry-summary{color:#55606a;font-size:12px;line-height:1.6;}
+@media (max-width:480px){
+.centerarticle-entry-summary{display:none;}
+}
+.centerarticle-entry-data{display:inline-block;font-size:13px;}
+.centerarticle-entry-data>li{display:inline-block;margin-right:6px;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.centerarticle-entry-data a{color:rgba(70,82,94,.8);text-decoration:none;}
+.centerarticle-entry-data a:hover{text-decoration:underline;}
+.centerarticle-entry-image{display:none;max-height:74px;overflow:hidden;position:absolute;right:0;top:0;width:90px;}
+.centerarticle-entry-image img{max-width:100%;}
+@media (max-width:480px){
+.centerarticle-entry-image{display:none!important;}
+}
+.is-image-entry-unit .centerarticle-entry-contents{min-height:63px;padding:0 100px 0 0;}
+.is-image-entry-unit .centerarticle-entry-image{display:block;}
+.centerarticle-reaction-comment{background:#f6f7f8;border-top:1px solid #fff;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-size:12px;margin:0;min-height:53px;padding:12px;}
+.centerarticle-reaction-comment a{color:#009ad0;}
+.centerarticle-reaction-comment a:hover{text-decoration:underline;}
+.centerarticle-reaction-thumb{margin-right:8px;position:relative;}
+.tweet-badge .centerarticle-reaction-thumb:after{background-position:50%;border:1px solid #fff;border-radius:2px;content:"";display:block;height:14px;position:absolute;right:-4px;top:19px;width:14px;}
+@media (max-width:480px){
+.tweet-badge .centerarticle-reaction-thumb:after{height:10px;right:-4px;top:13px;width:10px;}
+}
+.tweet-badge .centerarticle-reaction-thumb:after{background-color:#fff;background-image:url(https://b.st-hatena.com/images/v4/public/userpage/tweet-badge.svg?version=af615fabf56917a31a96);background-size:20px 20px;}
+@media (max-width:480px){
+.tweet-badge .centerarticle-reaction-thumb:after{background-size:16px 16px;}
+}
+.centerarticle-reaction-image{background:#fff;border-radius:3px;height:32px;width:32px;}
+@media (max-width:480px){
+.centerarticle-reaction-image{height:20px;width:20px;}
+}
+.centerarticle-reaction-main{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;margin:-2px 0 0;min-width:0;}
+.centerarticle-reaction-username{display:inline-block;font-size:12px;margin:0 3px 0 0;}
+.centerarticle-reaction-username a{color:#009ad0;text-decoration:none;}
+.centerarticle-reaction-main-comment-tags{margin-top:2px;}
+.centerarticle-reaction-tags{color:rgba(70,82,94,.8);display:inline;}
+.centerarticle-reaction-foot{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-top:3px;}
+.centerarticle-reaction-meta,.centerarticle-reaction-meta a{color:rgba(70,82,94,.8);}
+.centerarticle-reaction-meta .original-permalink{font-size:10.5px;}
+.centerarticle-reaction-meta .original-permalink{margin-right:8px;}
+.centerarticle-reaction-meta .original-permalink a:before{background-color:currentColor;content:"";display:inline-block;height:10.5px;-webkit-mask:url(https://b.st-hatena.com/images/v4/public/icons/ic-link.svg?version=4c3ef34938a4d6db06a6) no-repeat;mask:url(https://b.st-hatena.com/images/v4/public/icons/ic-link.svg?version=4c3ef34938a4d6db06a6) no-repeat;-webkit-mask-position:center -2px;mask-position:center -2px;-webkit-mask-size:13px;mask-size:13px;vertical-align:middle;width:13px;}
+.centerarticle-reaction-timestamp{color:rgba(70,82,94,.8);}
+.centerarticle-reaction-menu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-bottom:-4px;margin-left:auto;margin-right:-4px;position:relative;}
+.centerarticle-reaction-following{background:#f6f7f8;border-top:1px solid #fff;line-height:1;padding:0 80px 0 10px;position:relative;}
+.centerarticle-reaction-following>li{display:inline-block;padding:8px 0 0;position:relative;}
+.centerarticle-reaction-following>li:nth-last-child(2){padding-bottom:8px;}
+.centerarticle-reaction-following a{margin:0 2px 0 0;}
+.centerarticle-reaction-following .centerarticle-reaction-following-more{position:absolute;right:10px;}
+.centerarticle-reaction-following .centerarticle-reaction-following-more button{-webkit-appearance:none;background-color:transparent;border:none;border-radius:0;color:#009ad0;font-size:11px;padding:0;}
+.centerarticle-reaction-following .centerarticle-reaction-following-more button:hover{text-decoration:underline;}
+@media (max-width:480px){
+.centerarticle-reaction-following{padding-left:8px;}
+}
+.page-userfeed .centerarticle-entry-title a:visited{color:#76767e;}
+.center-container{padding:25px 32px 0 16px;}
+/*! CSS Used from: https://b.st-hatena.com/css/v4/bookmark.star.css?version=4bb643f4ebb85ca735cd112f23d7809ba8d6531d */
+.hatena-star-btn{background-color:transparent;background-position:50%;background-repeat:no-repeat;background-size:16px;border-radius:100%!important;height:inherit;outline:0;overflow:hidden;text-indent:110%;white-space:nowrap;width:inherit;}
+.hatena-star-btn:focus,.hatena-star-btn:hover{background-color:#f6f7f8;}
+.readlater-button-text{background-color:transparent;background-image:url(https://b.st-hatena.com/images/v4/public/readlater-button-text.svg?version=91507be2a2cef505179b);background-position:left 3px;background-repeat:no-repeat;background-size:8px 12px;border:none;border-radius:0;color:rgba(70,82,94,.8);line-height:1.6;padding:0 0 0 10px;}
+.readlater-button-text:hover{background-image:url(https://b.st-hatena.com/images/v4/public/readlater-button-active.svg?version=014c68f98468855f5f80);color:#ff7790;}
+.hatena-star-btn-container{-webkit-font-smoothing:subpixel-antialiased;-moz-osx-font-smoothing:grayscale;color:#25282b;font-family:Helvetica,Arial,Roboto,Hiragino Fixed,Hiragino Sans,sans-serif;font-size:16px;}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:2dppx),only screen and (-webkit-min-device-pixel-ratio:2){
+.hatena-star-btn-container{-webkit-font-smoothing:antialiased;}
+}
+.is-hidden{display:none!important;}
+.hatena-star-btn-container{height:28px;position:relative;width:28px;}
+.hatena-star-btn-container:hover .hatena-star-btn{background-color:rgba(255,185,72,.12);background-position:28px,0;}
+.hatena-star-btn{-webkit-appearance:none;background-color:transparent;background-image:url(https://b.st-hatena.com/images/v4/public/star/ic-star-btn.svg?version=5f156aa5d084343d068b),url(https://b.st-hatena.com/images/v4/public/star/ic-star-adding-yellow.png?version=53b666a74ab95d2c52b5);background-position:0,28px;background-size:28px,auto 28px;border:none;border-radius:0;cursor:pointer;padding:0;}
+.hatena-star-btn:focus,.hatena-star-btn:hover{background-color:rgba(255,185,72,.12);background-position:28px,0;}
+/*! CSS Used fontfaces */
+@font-face{font-family:Hiragino Fixed;font-weight:400;src:local("HiraginoSans-W4"),local("HiraginoSans-W3");}
+@font-face{font-family:Hiragino Fixed;font-weight:700;src:local("HiraginoSans-W6");}
+@font-face{font-family:Hiragino Fixed;font-weight:400;src:local("HiraginoSans-W4"),local("HiraginoSans-W3");}
+@font-face{font-family:Hiragino Fixed;font-weight:700;src:local("HiraginoSans-W6");}

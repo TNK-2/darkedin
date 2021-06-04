@@ -1,1 +1,1296 @@
-<p>center-feed works!</p>
+<div class="center-container">
+  <h2 class="centerarticle-title">マイホットエントリー</h2>
+      <div class="js-user-feed-digest-autoload-container" data-next-page-path="/yuuu1993g/hotentry?date=20210604" data-next-xhr-path="/api/my/feed_digest?date=20210604" data-next-label="2021年6月4日">
+        <script type="text/x-template" id="template-feed-digest-item">
+          <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry {{#has_image}}is-image-entry-unit{{/has_image}}">
+<h3 class="centerarticle-entry-title">
+<a href="{{url}}" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener{{#noreferrer}} noreferrer{{/noreferrer}}" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="{{favicon_url}}" alt="">{{title}}</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="{{page_url}}" class="js-keyboard-entry-page-openable" title="{{title}} ({{total_bookmarks}}ブックマーク)" data-gtm-click-label="user-my-bookmark-users">{{total_bookmarks_with_user_postfix}}</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/{{url_query}}" title="『{{root_title}}』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    {{root_title}}
+  </a>
+</li>
+  {{#is_categorized}}
+    <li><a href="{{category_path}}" data-gtm-click-label="user-my-bookmark-category">{{category_title}}</a></li>
+  {{/is_categorized}}
+  <li>
+    <div class="js-bookmark-stock-button">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="{{url}}">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">{{{summary_with_keyword_links}}}</p>
+  {{#has_image}}
+  <a href="{{canonical_url}}" class="centerarticle-entry-image" target="_blank" rel="noopener{{#noreferrer}} noreferrer{{/noreferrer}}" data-gtm-click-label="user-my-bookmark-thumb">
+      <img src="{{image_url}}" alt="{{title}}">
+    </a>
+  {{/has_image}}
+</div>
+</div>
+            {{#top_commented_list}}
+<div class="centerarticle-reaction-comment js-user-bookmark-comment {{badge_icon}}" data-url="{{url}}" data-user-name="{{author_name}}">
+<a href="{{top_page_path}}" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="{{profile_icon_url}}" alt="{{author_name}}" title="{{author_name}}" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="{{anchor_url}}" class="js-anchor-path" data-gtm-click-label="user-reaction-username">{{author_name}}</a></span>
+<span class="centerarticle-reaction-timestamp">{{created}}</span>
+<span class="js-private-icon status {{#is_public}}is-hidden{{/is_public}}"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">{{{comment_expanded}}}</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+      {{#tags}}
+        <li><a href="/{{author_name}}/{{escaped_label}}/" data-gtm-click-label="user-reaction-tag">{{label}}</a></li>
+      {{/tags}}
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="{{#is_bookmark}}comment-permalink{{/is_bookmark}}{{^is_bookmark}}original-permalink{{/is_bookmark}} js-comment-permalink">
+        <a href="{{comment_page_path}}" data-gtm-click-label="user-reaction-permalink" rel="{{#should_nofollow}}nofollow{{/should_nofollow}}">{{#is_bookmark}}リスト{{/is_bookmark}}{{^is_bookmark}}リンク{{/is_bookmark}}</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container"></div>
+  </div>
+</div>
+</div>
+</div>
+            {{/top_commented_list}}
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+{{#following_bookmarks}}
+<li>
+<a href="{{anchor_url}}" class="following-bookmark-link" data-gtm-click-label="user-bookmark-following-bookmarker-icon">
+<img src="{{profile_icon_url}}" alt="{{author_name}}" class="following-bookmark-icon" >
+</a>
+<span class="following-bookmark-popup">
+<span class="following-bookmark-username">{{author_name}}</span><span class="following-bookmark-timestamp">{{created}}</span>
+<span class="following-bookmark-text">
+    {{ #comment }}<span class="following-bookmark-comment">{{ comment }}</span>{{ /comment }}
+  <ul class="following-bookmark-tags">
+      {{ #tags }}<li>{{ label }}</li>{{ /tags }}
+  </ul>
+</span>
+</span>
+</li>
+{{/following_bookmarks}}
+{{#following_bookmarks.length}}
+  <li class="centerarticle-reaction-following-more"><button type="button" class="js-show-all-following-bookmarks" data-gtm-click-label="user-my-bookmark-showall-following-bookmarks">すべて表示</button></li>
+{{/following_bookmarks.length}}
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+{{#following_bookmarks}}
+<div class="centerarticle-reaction-comment js-user-bookmark-comment {{badge_icon}}" data-url="{{url}}" data-user-name="{{author_name}}">
+<a href="{{top_page_path}}" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="{{profile_icon_url}}" alt="{{author_name}}" title="{{author_name}}" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="{{anchor_url}}" class="js-anchor-path" data-gtm-click-label="user-reaction-username">{{author_name}}</a></span>
+<span class="centerarticle-reaction-timestamp">{{created}}</span>
+<span class="js-private-icon status {{#is_public}}is-hidden{{/is_public}}"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">{{{comment_expanded}}}</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+      {{#tags}}
+        <li><a href="/{{author_name}}/{{escaped_label}}/" data-gtm-click-label="user-reaction-tag">{{label}}</a></li>
+      {{/tags}}
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="{{#is_bookmark}}comment-permalink{{/is_bookmark}}{{^is_bookmark}}original-permalink{{/is_bookmark}} js-comment-permalink">
+        <a href="{{comment_page_path}}" data-gtm-click-label="user-reaction-permalink" rel="{{#should_nofollow}}nofollow{{/should_nofollow}}">{{#is_bookmark}}リスト{{/is_bookmark}}{{^is_bookmark}}リンク{{/is_bookmark}}</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container"></div>
+  </div>
+</div>
+</div>
+</div>
+{{/following_bookmarks}}
+</div>
+          </li>
+        </script>
+        <script type="text/x-template" id="template-bookmark-pager">
+          <li>
+<div class="centerarticle-date-pager">
+<span class="centerarticle-waiting js-read-more-waiting is-hidden"><img src="https://b.st-hatena.com/images/v4/public/common/loading@2x.gif?version=4bb643f4ebb85ca735cd112f23d7809ba8d6531d" alt="残りのブックマークを読み込んでいます" width="16" height="16" /></span>
+<ul class="centerarticle-date-pager-list">
+  {{#previous}}
+    <li><a href="{{page_path}}">{{label}}</a></li>
+  {{/previous}}
+  {{#pages}}
+    {{#page_path}}
+      <li><a href="{{page_path}}">{{label}}</a></li>
+    {{/page_path}}
+    {{^page_path}}
+      <li>{{label}}</li>
+    {{/page_path}}
+  {{/pages}}
+  {{#next}}
+    <li><a href="{{page_path}}">{{label}}</a></li>
+  {{/next}}
+</ul>
+</div>
+          </li>
+        </script>
+        <ul class="js-user-bookmark-item-list js-keyboard-controllable-container">
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://news.yahoo.co.jp/articles/d9bf2f67e5cd57f1a834d260e6607d444e8d4f57" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fnews.yahoo.co.jp%2Farticles%2Fd9bf2f67e5cd57f1a834d260e6607d444e8d4f57" alt="">性行為後に豹変、「女の体なめんなよ」と脅迫か　100万円超を恐喝容疑で女を逮捕（メ〜テレ（名古屋テレビ）） - Yahoo!ニュース</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/news.yahoo.co.jp/articles/d9bf2f67e5cd57f1a834d260e6607d444e8d4f57" class="js-keyboard-entry-page-openable" title="性行為後に豹変、「女の体なめんなよ」と脅迫か　100万円超を恐喝容疑で女を逮捕（メ〜テレ（名古屋テレビ）） - Yahoo!ニュース (157ブックマーク)" data-gtm-click-label="user-my-bookmark-users">157 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fnews.yahoo.co.jp%2F" title="『news.yahoo.co.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    news.yahoo.co.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://news.yahoo.co.jp/articles/d9bf2f67e5cd57f1a834d260e6607d444e8d4f57">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">出会い系アプリで知り合い、合意の上で性行為をした男性に対し「どう責任取るんだ。警察に被害届を出す」などと現金を要求し、100万円以上を脅し取ったとして24歳の女が逮捕されました。 恐喝の疑いで...</p>
+<a href="https://news.yahoo.co.jp/articles/d9bf2f67e5cd57f1a834d260e6607d444e8d4f57" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/43cc78afce40f47ff1ac4950994bb4a64af96d9d/height=280;version=1;width=400/https%3A%2F%2Famd-pctr.c.yimg.jp%2Fr%2Fiwiz-amd%2F20210604-00000009-nbnv-000-1-view.jpg" alt="性行為後に豹変、「女の体なめんなよ」と脅迫か　100万円超を恐喝容疑で女を逮捕（メ〜テレ（名古屋テレビ）） - Yahoo!ニュース">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/kuromitsu_ka/status/1400747216625537028" data-user-name="kuromitsu_ka">
+<a href="https://twitter.com/kuromitsu_ka" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/1065926772158394370/j4ghHl3n_normal.jpg" alt="kuromitsu_ka" title="kuromitsu_ka" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/kuromitsu_ka/status/1400747216625537028" class="js-anchor-path" data-gtm-click-label="user-reaction-username">kuromitsu_ka</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">RT <a href="https://twitter.com/MamBO666_888" target="_blank" rel="noopener nofollow">@MamBO666_888</a>: 性行為後に豹変、「女の体なめんなよ」と脅迫か　100万円超を恐喝容疑で女を逮捕(メ〜テレ)</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/kuromitsu_ka/status/1400747216625537028" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://news.yahoo.co.jp/byline/kikuchiyoshitaka/20210604-00241360/" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fnews.yahoo.co.jp%2Fbyline%2Fkikuchiyoshitaka%2F20210604-00241360%2F" alt="">うつ症状を公表した大坂なおみの心労とそれを報じた当事者意識の希薄なメディア(菊地慶剛) - 個人 - Yahoo!ニュース</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/news.yahoo.co.jp/byline/kikuchiyoshitaka/20210604-00241360/" class="js-keyboard-entry-page-openable" title="うつ症状を公表した大坂なおみの心労とそれを報じた当事者意識の希薄なメディア(菊地慶剛) - 個人 - Yahoo!ニュース (2ブックマーク)" data-gtm-click-label="user-my-bookmark-users">2 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fnews.yahoo.co.jp%2F" title="『news.yahoo.co.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    news.yahoo.co.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://news.yahoo.co.jp/byline/kikuchiyoshitaka/20210604-00241360/">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">【全仏オープンを途中棄権した大坂選手】 大坂なおみ選手が自らの意思で、全仏オープンを途中棄権したことは、日本のみならず世界中を驚かせた。 彼女が棄権するに至った経緯については、すでに各所で...</p>
+<a href="https://news.yahoo.co.jp/byline/kikuchiyoshitaka/20210604-00241360/" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/b50b99c5107fbd2cc47f212662ee62a38f5d2aaa/height=280;version=1;width=400/https%3A%2F%2Fnewsbyl-pctr.c.yimg.jp%2Fr%2Fiwiz-yn%2Frpr%2Fkikuchiyoshitaka%2F00241360%2Ftitle-1622777225486.jpeg" alt="うつ症状を公表した大坂なおみの心労とそれを報じた当事者意識の希薄なメディア(菊地慶剛) - 個人 - Yahoo!ニュース">
+  </a>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://www.nissin.com/jp/news/9604" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fwww.nissin.com%2Fjp%2Fnews%2F9604" alt="">"フタ止めシール" を廃止して、年間33トンのプラスチック原料を削減! 「カップヌードル」に新形状のフタ "Wタブ" を2021年6月より採用 | 日清食品グループ</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/www.nissin.com/jp/news/9604" class="js-keyboard-entry-page-openable" title="&quot;フタ止めシール&quot; を廃止して、年間33トンのプラスチック原料を削減! 「カップヌードル」に新形状のフタ &quot;Wタブ&quot; を2021年6月より採用 | 日清食品グループ (171ブックマーク)" data-gtm-click-label="user-my-bookmark-users">171 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fwww.nissin.com%2F" title="『www.nissin.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    www.nissin.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://www.nissin.com/jp/news/9604">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">PDFファイル (456KB) 日清食品株式会社 (社長:安藤 徳隆) は、「カップヌードル DO IT NOW!」プロジェクトの一環として、プラスチック原料の使用量削減のため "フタ止めシール" を廃止するとともに、シ...</p>
+<a href="https://www.nissin.com/jp/news/9604" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/fa2be5cf08efcd5bcbea324d0fa2ceeab4c3f222/height=280;version=1;width=400/https%3A%2F%2Fcdn.nissin.com%2Fgr-documents%2Fattachments%2Fnews_posts%2F9604%2F2f0e84093d28e1ff%2Foriginal%2F20210604-2-03.jpg%3F1622699039" alt="&quot;フタ止めシール&quot; を廃止して、年間33トンのプラスチック原料を削減! 「カップヌードル」に新形状のフタ &quot;Wタブ&quot; を2021年6月より採用 | 日清食品グループ">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/oyazi_q9550/status/1400778724153303049" data-user-name="oyazi_q9550">
+<a href="https://twitter.com/oyazi_q9550" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/1041976467469479941/gYr5t0Vw_normal.jpg" alt="oyazi_q9550" title="oyazi_q9550" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/oyazi_q9550/status/1400778724153303049" class="js-anchor-path" data-gtm-click-label="user-reaction-username">oyazi_q9550</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">RT <a href="https://twitter.com/cupnoodle_jp" target="_blank" rel="noopener nofollow">@cupnoodle_jp</a>: まさか実現するとは・・・</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/oyazi_q9550/status/1400778724153303049" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://note.com/smart_tokyo/n/nbcc5c5b23a1d" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fnote.com%2Fsmart_tokyo%2Fn%2Fnbcc5c5b23a1d" alt="">DXな日常～苦労と汗と涙の記録～｜デジタルサービス推進部（東京都 公式）｜note</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/note.com/smart_tokyo/n/nbcc5c5b23a1d" class="js-keyboard-entry-page-openable" title="DXな日常～苦労と汗と涙の記録～｜デジタルサービス推進部（東京都 公式）｜note (4ブックマーク)" data-gtm-click-label="user-my-bookmark-users">4 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fnote.com%2F" title="『note.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    note.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://note.com/smart_tokyo/n/nbcc5c5b23a1d">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">~都庁内でデジタルツール（Teams）、Excel－PowerQueryを みんなでガンガン使ってみました！！~　福祉保健局保健所連携支援担当チームは、昨年より東京都下約40ブロックの保健所・医療機関が入力するHE...</p>
+<a href="https://note.com/smart_tokyo/n/nbcc5c5b23a1d" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/c77cf4104249b17fc7bc48fc41849d9d3b9dbff1/height=280;version=1;width=400/https%3A%2F%2Fassets.st-note.com%2Fproduction%2Fuploads%2Fimages%2F53241804%2Frectangle_large_type_2_1e71896d05b32ce30dde88bb45a2db9e.png%3Ffit%3Dbounds%26quality%3D85%26width%3D1280" alt="DXな日常～苦労と汗と涙の記録～｜デジタルサービス推進部（東京都 公式）｜note">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/fukkyy/status/1400692387072991233" data-user-name="fukkyy">
+<a href="https://twitter.com/fukkyy" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/479435326083964928/CPcSdHAV_normal.png" alt="fukkyy" title="fukkyy" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/fukkyy/status/1400692387072991233" class="js-anchor-path" data-gtm-click-label="user-reaction-username">fukkyy</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">DXな日常～苦労と汗と涙の記録～｜デジタルサービス推進部（東京都 公式） #note</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/fukkyy/status/1400692387072991233" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://recruitment.digital.go.jp/careers/042" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Frecruitment.digital.go.jp%2Fcareers%2F042" alt="">中途採用｜デジタル庁創設に向けた準備サイト</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/recruitment.digital.go.jp/careers/042" class="js-keyboard-entry-page-openable" title="中途採用｜デジタル庁創設に向けた準備サイト (17ブックマーク)" data-gtm-click-label="user-my-bookmark-users">17 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Frecruitment.digital.go.jp%2F" title="『recruitment.digital.go.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    recruitment.digital.go.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://recruitment.digital.go.jp/careers/042">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">内閣官房情報通信技術（IT）総合戦略室において、デジタル庁の創設に向けた民間人材の募集を行います。</p>
+<a href="https://recruitment.digital.go.jp/careers/042" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/252ee32176ae4f0e9b5f379c375778c808cffb70/height=280;version=1;width=400/https%3A%2F%2Fstorage.googleapis.com%2Fproduction-os-assets%2Fassets%2F3f7656e4-cfc1-4109-8dbb-f03a3a9486b1" alt="中途採用｜デジタル庁創設に向けた準備サイト">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/soudai1025/status/1400830093694439430" data-user-name="soudai1025">
+<a href="https://twitter.com/soudai1025" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/2825277737/b1a1a8ab4065e76afc31f17695db1ac2_normal.png" alt="soudai1025" title="soudai1025" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/soudai1025/status/1400830093694439430" class="js-anchor-path" data-gtm-click-label="user-reaction-username">soudai1025</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/05</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">なるほどCTO</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/soudai1025/status/1400830093694439430" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://tech.enigmo.co.jp/entry/2021/06/04/100000" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Ftech.enigmo.co.jp%2Fentry%2F2021%2F06%2F04%2F100000" alt="">enigmoデザイナーの「最近気になるデザイントピック」- アプリUI編 - エニグモ開発者ブログ</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/tech.enigmo.co.jp/entry/2021/06/04/100000" class="js-keyboard-entry-page-openable" title="enigmoデザイナーの「最近気になるデザイントピック」- アプリUI編 - エニグモ開発者ブログ (28ブックマーク)" data-gtm-click-label="user-my-bookmark-users">28 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Ftech.enigmo.co.jp%2F" title="『tech.enigmo.co.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    tech.enigmo.co.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://tech.enigmo.co.jp/entry/2021/06/04/100000">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">こんにちは。デザイナーの別所です。 本日はenigmoデザイナーの、最近気になっているデザインに関するトピックをご紹介したいと思います。 デザイナーのメンバーで4回に渡って更新しようと思いますので...</p>
+<a href="https://tech.enigmo.co.jp/entry/2021/06/04/100000" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/7c2858c6ec69fe790b619e2394e633bc81c5ada2/height=280;version=1;width=400/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fe%2Fenigmo7%2F20210603%2F20210603171725.png" alt="enigmoデザイナーの「最近気になるデザイントピック」- アプリUI編 - エニグモ開発者ブログ">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/kuromitsu_ka/status/1400619998222053380" data-user-name="kuromitsu_ka">
+<a href="https://twitter.com/kuromitsu_ka" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/1065926772158394370/j4ghHl3n_normal.jpg" alt="kuromitsu_ka" title="kuromitsu_ka" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/kuromitsu_ka/status/1400619998222053380" class="js-anchor-path" data-gtm-click-label="user-reaction-username">kuromitsu_ka</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">enigmoデザイナーの「最近気になるデザイントピック」- アプリUI編 - エニグモ開発者ブログ</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/kuromitsu_ka/status/1400619998222053380" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://jp.techcrunch.com/2021/06/04/norton-360-ethereum/" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fjp.techcrunch.com%2F2021%2F06%2F04%2Fnorton-360-ethereum%2F" alt="">セキュリティソフト「ノートン360」が暗号資産イーサリアムのマイニング機能「Norton Crypto」を追加 | TechCrunch Japan</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/jp.techcrunch.com/2021/06/04/norton-360-ethereum/" class="js-keyboard-entry-page-openable" title="セキュリティソフト「ノートン360」が暗号資産イーサリアムのマイニング機能「Norton Crypto」を追加 | TechCrunch Japan (7ブックマーク)" data-gtm-click-label="user-my-bookmark-users">7 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fjp.techcrunch.com%2F" title="『jp.techcrunch.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    jp.techcrunch.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://jp.techcrunch.com/2021/06/04/norton-360-ethereum/">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">24K-Production via Getty Images NortonLifeLock(旧：Symantec)は、PC環境に高度なセキュリティ環境を提供する「ノートン360」でマルウェア対策だけでなく、VPNや保護者機能、25GBのクラウドバックア...</p>
+<a href="https://jp.techcrunch.com/2021/06/04/norton-360-ethereum/" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/a053d5893d9065251c69cd48e9270bd88e0bb697/height=280;version=1;width=400/https%3A%2F%2Fjp.techcrunch.com%2Fwp-content%2Fuploads%2F2021%2F06%2F2021-06-04-002-index.jpg%3Fw%3D1024" alt="セキュリティソフト「ノートン360」が暗号資産イーサリアムのマイニング機能「Norton Crypto」を追加 | TechCrunch Japan">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/mizchi/status/1400730368827744260" data-user-name="mizchi">
+<a href="https://twitter.com/mizchi" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/2507664307/viccruw2m1zb0xkkisil_normal.jpeg" alt="mizchi" title="mizchi" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/mizchi/status/1400730368827744260" class="js-anchor-path" data-gtm-click-label="user-reaction-username">mizchi</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">野良のマイニングと向き合いすぎて頭おかしくなってそう</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/mizchi/status/1400730368827744260" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://internet.watch.impress.co.jp/docs/column/dlis/1328841.html" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Finternet.watch.impress.co.jp%2Fdocs%2Fcolumn%2Fdlis%2F1328841.html" alt="">友だちから「写真がネットに載ってるじゃん、気まずいな！」と連絡が来た【被害事例に学ぶ、高齢者のためのデジタルリテラシー】 - INTERNET Watch</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/internet.watch.impress.co.jp/docs/column/dlis/1328841.html" class="js-keyboard-entry-page-openable" title="友だちから「写真がネットに載ってるじゃん、気まずいな！」と連絡が来た【被害事例に学ぶ、高齢者のためのデジタルリテラシー】 - INTERNET Watch (21ブックマーク)" data-gtm-click-label="user-my-bookmark-users">21 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Finternet.watch.impress.co.jp%2F" title="『internet.watch.impress.co.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    internet.watch.impress.co.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://internet.watch.impress.co.jp/docs/column/dlis/1328841.html">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary"></p>
+<a href="https://internet.watch.impress.co.jp/docs/column/dlis/1328841.html" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/4d88a840c2176a70b378b0a9c979c8cc82b7364f/height=280;version=1;width=400/https%3A%2F%2Finternet.watch.impress.co.jp%2Fimg%2Fiw%2Flist%2F1328%2F841%2F01.png" alt="友だちから「写真がネットに載ってるじゃん、気まずいな！」と連絡が来た【被害事例に学ぶ、高齢者のためのデジタルリテラシー】 - INTERNET Watch">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/oyazi_q9550/status/1400816231121252354" data-user-name="oyazi_q9550">
+<a href="https://twitter.com/oyazi_q9550" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/1041976467469479941/gYr5t0Vw_normal.jpg" alt="oyazi_q9550" title="oyazi_q9550" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/oyazi_q9550/status/1400816231121252354" class="js-anchor-path" data-gtm-click-label="user-reaction-username">oyazi_q9550</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">RT <a href="https://twitter.com/internet_watch" target="_blank" rel="noopener nofollow">@internet_watch</a>: 【今日の人気記事】友だちから「写真がネットに載ってるじゃん、気まずいな！」と連絡が来た【それってネット詐欺ですよ！】 <a href="https://t.co/BFRYbSZiWU" target="_blank" rel="noopener nofollow">https://t.co/BFRYbSZiWU</a> #トレンドマイクロ #写真 #ネット</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/oyazi_q9550/status/1400816231121252354" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://www.publickey1.jp/blog/21/kuberneteswindows_10macosrancher_desktop.html" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fwww.publickey1.jp%2Fblog%2F21%2Fkuberneteswindows_10macosrancher_desktop.html" alt="">Kubernetes環境をWindows 10/macOSへ簡単にインストール。「Rancher Desktop」がオープンソースで公開 － Publickey</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/www.publickey1.jp/blog/21/kuberneteswindows_10macosrancher_desktop.html" class="js-keyboard-entry-page-openable" title="Kubernetes環境をWindows 10/macOSへ簡単にインストール。「Rancher Desktop」がオープンソースで公開 － Publickey (61ブックマーク)" data-gtm-click-label="user-my-bookmark-users">61 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fwww.publickey1.jp%2F" title="『www.publickey1.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    www.publickey1.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://www.publickey1.jp/blog/21/kuberneteswindows_10macosrancher_desktop.html">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">インストールして起動するだけで、Windows 10やmacOS上に簡単にKubernetes環境が導入される「Rancher Desktop」がオープンソースで公開されました。 Rancher DesktopはElectronとNode.jsをベースに構築...</p>
+<a href="https://www.publickey1.jp/blog/21/kuberneteswindows_10macosrancher_desktop.html" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/5e44f3212c7524df0798847494fdaa980bd44851/height=280;version=1;width=400/https%3A%2F%2Fwww.publickey1.jp%2F2021%2Francherdesktop01.gif" alt="Kubernetes環境をWindows 10/macOSへ簡単にインストール。「Rancher Desktop」がオープンソースで公開 － Publickey">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/publickey/status/1400652950800719872" data-user-name="publickey">
+<a href="https://twitter.com/publickey" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/256913586/publickey_icon_normal.png" alt="publickey" title="publickey" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/publickey/status/1400652950800719872" class="js-anchor-path" data-gtm-click-label="user-reaction-username">publickey</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">Kubernetes環境をWindows 10/macOSへ簡単にインストール。「Rancher Desktop」がオープンソースで公開</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/publickey/status/1400652950800719872" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://www.publickey1.jp/blog/21/teamsgooglematrial_youproject_starline20215.html" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fwww.publickey1.jp%2Fblog%2F21%2Fteamsgooglematrial_youproject_starline20215.html" alt="">Teamsの個人向け無償提供スタート／Googleの新デザインフレームワーク「Matrial You」／目の前に相手が実在するかのような「Project Starline」ほか、2021年5月の人気記事 － Publickey</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/www.publickey1.jp/blog/21/teamsgooglematrial_youproject_starline20215.html" class="js-keyboard-entry-page-openable" title="Teamsの個人向け無償提供スタート／Googleの新デザインフレームワーク「Matrial You」／目の前に相手が実在するかのような「Project Starline」ほか、2021年5月の人気記事 － Publickey (3ブックマーク)" data-gtm-click-label="user-my-bookmark-users">3 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fwww.publickey1.jp%2F" title="『www.publickey1.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    www.publickey1.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://www.publickey1.jp/blog/21/teamsgooglematrial_youproject_starline20215.html">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">Teamsの個人向け無償提供スタート／Googleの新デザインフレームワーク「Matrial You」／目の前に相手が実在するかのような「Project Starline」ほか、2021年5月の人気記事 モダンなWebサイトの実装方法...</p>
+<a href="https://www.publickey1.jp/blog/21/teamsgooglematrial_youproject_starline20215.html" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/e34dd5c68e9bdb4d618c021998c2e5065dad7d8a/height=280;version=1;width=400/https%3A%2F%2Fwww.publickey1.jp%2Ffbico_pblky.png" alt="Teamsの個人向け無償提供スタート／Googleの新デザインフレームワーク「Matrial You」／目の前に相手が実在するかのような「Project Starline」ほか、2021年5月の人気記事 － Publickey">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/publickey/status/1400652907205201924" data-user-name="publickey">
+<a href="https://twitter.com/publickey" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/256913586/publickey_icon_normal.png" alt="publickey" title="publickey" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/publickey/status/1400652907205201924" class="js-anchor-path" data-gtm-click-label="user-reaction-username">publickey</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">Teamsの個人向け無償提供スタート／Googleの新デザインフレームワーク「Matrial You」／目の前に相手が実在するかのような「Project Starline」ほか、2021年5月の人気記事</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/publickey/status/1400652907205201924" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://nlab.itmedia.co.jp/nl/articles/2106/03/news131.html" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fnlab.itmedia.co.jp%2Fnl%2Farticles%2F2106%2F03%2Fnews131.html" alt="">アヒルちゃんが番台で男湯・女湯の混み具合をお知らせ　愛知の銭湯が「入口から楽しい」と好評（1/2 ページ） - ねとらぼ</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/nlab.itmedia.co.jp/nl/articles/2106/03/news131.html" class="js-keyboard-entry-page-openable" title="アヒルちゃんが番台で男湯・女湯の混み具合をお知らせ　愛知の銭湯が「入口から楽しい」と好評（1/2 ページ） - ねとらぼ (3ブックマーク)" data-gtm-click-label="user-my-bookmark-users">3 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fnlab.itmedia.co.jp%2F" title="『nlab.itmedia.co.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    nlab.itmedia.co.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://nlab.itmedia.co.jp/nl/articles/2106/03/news131.html">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">番台に飾られたおもちゃのアヒルちゃんが男湯・女湯の混み具合を知らせる、愛知県豊橋市の銭湯「にんじん湯（@ninjinyu2021）」のアイデアがTwitterで注目を集めています。かわいくて和むし分かりやす...</p>
+<a href="https://nlab.itmedia.co.jp/nl/articles/2106/03/news131.html" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/6fd0d11667fd8dfb2ff19bc459aeb905b394cd80/height=280;version=1;width=400/https%3A%2F%2Fimage.itmedia.co.jp%2Fnl%2Farticles%2F2106%2F03%2Fl_kutsu_210603duckling01.jpg" alt="アヒルちゃんが番台で男湯・女湯の混み具合をお知らせ　愛知の銭湯が「入口から楽しい」と好評（1/2 ページ） - ねとらぼ">
+  </a>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+<li>
+<a href="https://twitter.com/kuromitsu_ka/status/1400737686747422720" class="following-bookmark-link" data-gtm-click-label="user-bookmark-following-bookmarker-icon">
+<img src="https://pbs.twimg.com/profile_images/1065926772158394370/j4ghHl3n_normal.jpg" alt="kuromitsu_ka" class="following-bookmark-icon">
+</a>
+<span class="following-bookmark-popup">
+<span class="following-bookmark-username">kuromitsu_ka</span><span class="following-bookmark-timestamp">2021/06/04</span>
+<span class="following-bookmark-text">
+  <ul class="following-bookmark-tags">
+  </ul>
+</span>
+</span>
+</li>
+  <li class="centerarticle-reaction-following-more"><button type="button" class="js-show-all-following-bookmarks" data-gtm-click-label="user-my-bookmark-showall-following-bookmarks">すべて表示</button></li>
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/kuromitsu_ka/status/1400737686747422720" data-user-name="kuromitsu_ka">
+<a href="https://twitter.com/kuromitsu_ka" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/1065926772158394370/j4ghHl3n_normal.jpg" alt="kuromitsu_ka" title="kuromitsu_ka" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/kuromitsu_ka/status/1400737686747422720" class="js-anchor-path" data-gtm-click-label="user-reaction-username">kuromitsu_ka</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment"></span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/kuromitsu_ka/status/1400737686747422720" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://www.nikkei.com/article/DGXZQOUC031TZ0T00C21A6000000/" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fwww.nikkei.com%2Farticle%2FDGXZQOUC031TZ0T00C21A6000000%2F" alt="">請求書の決裁、スラックで完結　LayerXが新機能: 日本経済新聞</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/www.nikkei.com/article/DGXZQOUC031TZ0T00C21A6000000/" class="js-keyboard-entry-page-openable" title="請求書の決裁、スラックで完結　LayerXが新機能: 日本経済新聞 (8ブックマーク)" data-gtm-click-label="user-my-bookmark-users">8 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fwww.nikkei.com%2F" title="『www.nikkei.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    www.nikkei.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://www.nikkei.com/article/DGXZQOUC031TZ0T00C21A6000000/">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">日経の記事利用サービスについて 企業での記事共有や会議資料への転載・複製、注文印刷などをご希望の方は、リンク先をご覧ください。 詳しくはこちら 業務デジタル化を手掛けるLayerX（レイヤーX、東...</p>
+<a href="https://www.nikkei.com/article/DGXZQOUC031TZ0T00C21A6000000/" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/b2247f6453957fb8bba21f33203256f85be6cbe1/height=280;version=1;width=400/https%3A%2F%2Farticle-image-ix.nikkei.com%2Fhttps%253A%252F%252Fimgix-proxy.n8s.jp%252FDSXZQO0675119003062021000000-1.jpg%3Fauto%3Dformat%252Ccompress%26ch%3DWidth%252CDPR%26q%3D45%26fit%3Dcrop%26bg%3DFFFFFF%26w%3D1200%26h%3D630%26fp_x%3D0.5%26fp_y%3D0.5%26fp_z%3D1%26crop%3Dfocalpoint%26ixlib%3Djs-1.4.1%26s%3D3ec6688de87a6a557746319bb61686e1" alt="請求書の決裁、スラックで完結　LayerXが新機能: 日本経済新聞">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/fukkyy/status/1400737180889219073" data-user-name="fukkyy">
+<a href="https://twitter.com/fukkyy" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/479435326083964928/CPcSdHAV_normal.png" alt="fukkyy" title="fukkyy" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/fukkyy/status/1400737180889219073" class="js-anchor-path" data-gtm-click-label="user-reaction-username">fukkyy</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">RT <a href="https://twitter.com/abu_koftaro" target="_blank" rel="noopener nofollow">@abu_koftaro</a>: これ欲しい…</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/fukkyy/status/1400737180889219073" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry ">
+<h3 class="centerarticle-entry-title">
+<a href="https://onidenwa.com/" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fonidenwa.com%2F" alt="">コロナコール</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/onidenwa.com/" class="js-keyboard-entry-page-openable" title="コロナコール (190ブックマーク)" data-gtm-click-label="user-my-bookmark-users">190 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fonidenwa.com%2F" title="『onidenwa.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    onidenwa.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://onidenwa.com/">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">新型コロナウイルスのワクチン接種の受付電話、つながりませんよね。 コロナコールを使えば、通常の電話回線と違う特殊な仕組みを使って受付電話にお繋ぎします。(最大100回線から約1.8秒ごとにコール...</p>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/oyazi_q9550/status/1400781162461601794" data-user-name="oyazi_q9550">
+<a href="https://twitter.com/oyazi_q9550" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/1041976467469479941/gYr5t0Vw_normal.jpg" alt="oyazi_q9550" title="oyazi_q9550" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/oyazi_q9550/status/1400781162461601794" class="js-anchor-path" data-gtm-click-label="user-reaction-username">oyazi_q9550</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">RT <a href="https://twitter.com/fushiroyama" target="_blank" rel="noopener nofollow">@fushiroyama</a>: コロナコールなる倫理観を疑うサービス、「最大100回線から約1.8秒ごとにコールしていきます」とチラつかせながら拒否する自治体に手間賃を要求するのは一線を越えている気がする。</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/oyazi_q9550/status/1400781162461601794" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://note.com/massi311283/n/ncd5b81360362" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fnote.com%2Fmassi311283%2Fn%2Fncd5b81360362" alt="">サイゼリヤの完全攻略マニュアル｜Massi｜note</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/note.com/massi311283/n/ncd5b81360362" class="js-keyboard-entry-page-openable" title="サイゼリヤの完全攻略マニュアル｜Massi｜note (2542ブックマーク)" data-gtm-click-label="user-my-bookmark-users">2542 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fnote.com%2F" title="『note.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    note.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://note.com/massi311283/n/ncd5b81360362">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">こんにちは、日伊通訳マッシ（＠massi3112） サイゼリヤが大好きで行くといつもイタリアに帰った気分になる。イタリア流の食べ方を知ると更に美味しくなるだけでなく、カスタマイズして自分にピッタリ...</p>
+<a href="https://note.com/massi311283/n/ncd5b81360362" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/56428b4925bc92fad0d4e27845bdf3ca4a21dac1/height=280;version=1;width=400/https%3A%2F%2Fassets.st-note.com%2Fproduction%2Fuploads%2Fimages%2F53451138%2Frectangle_large_type_2_f1a7bdc4d8f7e65f1f528a2cad72df17.jpg%3Ffit%3Dbounds%26quality%3D85%26width%3D1280" alt="サイゼリヤの完全攻略マニュアル｜Massi｜note">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/kuromitsu_ka/status/1400845873328791559" data-user-name="kuromitsu_ka">
+<a href="https://twitter.com/kuromitsu_ka" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/1065926772158394370/j4ghHl3n_normal.jpg" alt="kuromitsu_ka" title="kuromitsu_ka" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/kuromitsu_ka/status/1400845873328791559" class="js-anchor-path" data-gtm-click-label="user-reaction-username">kuromitsu_ka</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/05</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">RT <a href="https://twitter.com/pegumo931" target="_blank" rel="noopener nofollow">@pegumo931</a>: サイゼリヤの完全攻略マニュアル｜Massi <a href="https://twitter.com/massi3112" target="_blank" rel="noopener nofollow">@massi3112</a> #note</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/kuromitsu_ka/status/1400845873328791559" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://comic-days.com/episode/10834108156639371953" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fcomic-days.com%2Fepisode%2F10834108156639371953" alt="">校庭の宇宙人 - コンドウ十画 / 校庭の宇宙人 | コミックDAYS</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/comic-days.com/episode/10834108156639371953" class="js-keyboard-entry-page-openable" title="校庭の宇宙人 - コンドウ十画 / 校庭の宇宙人 | コミックDAYS (381ブックマーク)" data-gtm-click-label="user-my-bookmark-users">381 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fcomic-days.com%2F" title="『comic-days.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    comic-days.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://comic-days.com/episode/10834108156639371953">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">コミックDAYSは正規版配信サイトマークを取得したサービスです。 © KODANSHA Ltd. All rights reserved. このサイトのデータの著作権は講談社が保有します。無断複製転載放送等は禁止します。</p>
+<a href="https://comic-days.com/episode/10834108156639371953" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/ea9b9f34b155597ff7851cfc18046563241821fa/height=280;version=1;width=400/https%3A%2F%2Fcdn-img.comic-days.com%2Fpublic%2Fseries-thumbnail%2F10834108156639371866-f6866a7019563a82a8c854bf94a73f84%3F1560917066" alt="校庭の宇宙人 - コンドウ十画 / 校庭の宇宙人 | コミックDAYS">
+  </a>
+</div>
+</div>
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/mizchi/status/1400665864861405191" data-user-name="mizchi">
+<a href="https://twitter.com/mizchi" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/2507664307/viccruw2m1zb0xkkisil_normal.jpeg" alt="mizchi" title="mizchi" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/mizchi/status/1400665864861405191" class="js-anchor-path" data-gtm-click-label="user-reaction-username">mizchi</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment">校庭の宇宙人、読み直したけどやはり最後の流れが完璧過ぎる</span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/mizchi/status/1400665864861405191" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://www.publickey1.jp/blog/21/oracle_cloud160armoci_ampere_a1_compute4cpu24gbarmjenkinskubernetes.html" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fwww.publickey1.jp%2Fblog%2F21%2Foracle_cloud160armoci_ampere_a1_compute4cpu24gbarmjenkinskubernetes.html" alt="">Oracle Cloud、最大160コアのArmプロセッサを用いた「OCI Ampere A1 Compute」開始。無償で4CPU/24GBメモリを期限なく提供、Arm対応のJenkinsやKubernetesも － Publickey</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/www.publickey1.jp/blog/21/oracle_cloud160armoci_ampere_a1_compute4cpu24gbarmjenkinskubernetes.html" class="js-keyboard-entry-page-openable" title="Oracle Cloud、最大160コアのArmプロセッサを用いた「OCI Ampere A1 Compute」開始。無償で4CPU/24GBメモリを期限なく提供、Arm対応のJenkinsやKubernetesも － Publickey (117ブックマーク)" data-gtm-click-label="user-my-bookmark-users">117 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fwww.publickey1.jp%2F" title="『www.publickey1.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    www.publickey1.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://www.publickey1.jp/blog/21/oracle_cloud160armoci_ampere_a1_compute4cpu24gbarmjenkinskubernetes.html">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">Oracle Cloud、最大160コアのArmプロセッサを用いた「OCI Ampere A1 Compute」開始。無償で4CPU/24GBメモリを期限なく提供、Arm対応のJenkinsやKubernetesも オラクルは、同社が提供するクラウドサービ...</p>
+<a href="https://www.publickey1.jp/blog/21/oracle_cloud160armoci_ampere_a1_compute4cpu24gbarmjenkinskubernetes.html" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/3bcb305a648a52f15e4872f0abb4c566c7dbf6ee/height=280;version=1;width=400/https%3A%2F%2Fwww.publickey1.jp%2F2021%2FE2SR0gqX0Ag6KkV.jpg" alt="Oracle Cloud、最大160コアのArmプロセッサを用いた「OCI Ampere A1 Compute」開始。無償で4CPU/24GBメモリを期限なく提供、Arm対応のJenkinsやKubernetesも － Publickey">
+  </a>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+<li>
+<a href="https://twitter.com/y_taka_23/status/1400799821636665350" class="following-bookmark-link" data-gtm-click-label="user-bookmark-following-bookmarker-icon">
+<img src="https://pbs.twimg.com/profile_images/378800000092820656/9e0afbe2ad2d6c3e881a358983198307_normal.png" alt="y_taka_23" class="following-bookmark-icon">
+</a>
+<span class="following-bookmark-popup">
+<span class="following-bookmark-username">y_taka_23</span><span class="following-bookmark-timestamp">2021/06/04</span>
+<span class="following-bookmark-text">
+  <ul class="following-bookmark-tags">
+  </ul>
+</span>
+</span>
+</li>
+  <li class="centerarticle-reaction-following-more"><button type="button" class="js-show-all-following-bookmarks" data-gtm-click-label="user-my-bookmark-showall-following-bookmarks">すべて表示</button></li>
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+<div class="centerarticle-reaction-comment js-user-bookmark-comment tweet-badge js-star-sweeped" data-url="https://twitter.com/y_taka_23/status/1400799821636665350" data-user-name="y_taka_23">
+<a href="https://twitter.com/y_taka_23" data-gtm-click-label="user-reaction-usericon" class="centerarticle-reaction-thumb">
+<img src="https://pbs.twimg.com/profile_images/378800000092820656/9e0afbe2ad2d6c3e881a358983198307_normal.png" alt="y_taka_23" title="y_taka_23" class="centerarticle-reaction-image">
+</a>
+<div class="centerarticle-reaction-main">
+<span class="centerarticle-reaction-username"><a href="https://twitter.com/y_taka_23/status/1400799821636665350" class="js-anchor-path" data-gtm-click-label="user-reaction-username">y_taka_23</a></span>
+<span class="centerarticle-reaction-timestamp">2021/06/04</span>
+<span class="js-private-icon status is-hidden"><img src="/images/v4/public/userpage/icon-private.svg" alt="非公開" width="10px" height="10px"></span>
+<div class="centerarticle-reaction-main-comment-tags">
+  <span class="js-comment"></span>
+  <ul class="centerarticle-reaction-tags js-tag-text">
+  </ul>
+</div>
+<div class="centerarticle-reaction-foot">
+  <div class="centerarticle-reaction-meta">
+      <span class="original-permalink js-comment-permalink">
+        <a href="https://twitter.com/y_taka_23/status/1400799821636665350" data-gtm-click-label="user-reaction-permalink" rel="">リンク</a>
+      </span>        <span class="list-star-container js-list-star-container"></span>
+    <span class="twitter-click js-short-url-clicks"></span>
+  </div>
+  <div class="centerarticle-reaction-menu">
+    <div class="js-add-star-container add-star-container hatena-star-btn-container js-hatena-star-btn-container"><button class="hatena-star-btn" aria-label="Add Star">Add Star</button></div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://blogos.com/article/540788/" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fblogos.com%2Farticle%2F540788%2F" alt="">大坂なおみ選手の騒動を記者席から見て思うこと</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/blogos.com/article/540788/" class="js-keyboard-entry-page-openable" title="大坂なおみ選手の騒動を記者席から見て思うこと (5ブックマーク)" data-gtm-click-label="user-my-bookmark-users">5 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fblogos.com%2F" title="『blogos.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    blogos.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://blogos.com/article/540788/">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">記事 江口健 2021年06月03日 19:46 大坂なおみ選手の騒動を記者席から見て思うこと Tweet Getty Images 大坂なおみ選手が5月27日に、全仏オープンテニス大会中のプレスカンファレンスに参加しない意向...</p>
+<a href="https://blogos.com/article/540788/" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/864eeb6758ffab3ac5847c2d26dd07555709bffd/height=280;version=1;width=400/https%3A%2F%2Fstatic.blogos.com%2Fmedia%2Fimg%2F469228%2Fref_xl.jpg" alt="大坂なおみ選手の騒動を記者席から見て思うこと">
+  </a>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://www.mag2.com/p/news/499402" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fwww.mag2.com%2Fp%2Fnews%2F499402" alt="">大坂なおみ選手の棄権報道で感じた「うつ病」という言葉を扱う危険性 - まぐまぐニュース！</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/www.mag2.com/p/news/499402" class="js-keyboard-entry-page-openable" title="大坂なおみ選手の棄権報道で感じた「うつ病」という言葉を扱う危険性 - まぐまぐニュース！ (2ブックマーク)" data-gtm-click-label="user-my-bookmark-users">2 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fwww.mag2.com%2F" title="『www.mag2.com』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    www.mag2.com
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://www.mag2.com/p/news/499402">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">テニスの全仏オープンに出場中だった大坂なおみ選手による、自らの精神状態を公表したツイートが全世界で話題となっています。日本のメディアは大坂選手の書き込みに基づき「うつ病に悩まされていた」...</p>
+<a href="https://www.mag2.com/p/news/499402" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/cbbe9c29d0232d0cb026e317ba8fe5b99e3ad8c2/height=280;version=1;width=400/https%3A%2F%2Fwww.mag2.com%2Fp%2Fnews%2Fwp-content%2Fuploads%2F2021%2F06%2Fshutterstock_1262657242.jpg" alt="大坂なおみ選手の棄権報道で感じた「うつ病」という言葉を扱う危険性 - まぐまぐニュース！">
+  </a>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://news.yahoo.co.jp/articles/c729987eb9ad8acf585a9121aed1ba9f3b500442" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fnews.yahoo.co.jp%2Farticles%2Fc729987eb9ad8acf585a9121aed1ba9f3b500442" alt="">大坂なおみに〝ボルグの悲劇〟再びか　マッケンローも引退を心配（東スポWeb） - Yahoo!ニュース</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/news.yahoo.co.jp/articles/c729987eb9ad8acf585a9121aed1ba9f3b500442" class="js-keyboard-entry-page-openable" title="大坂なおみに〝ボルグの悲劇〟再びか　マッケンローも引退を心配（東スポWeb） - Yahoo!ニュース (2ブックマーク)" data-gtm-click-label="user-my-bookmark-users">2 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fnews.yahoo.co.jp%2F" title="『news.yahoo.co.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    news.yahoo.co.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://news.yahoo.co.jp/articles/c729987eb9ad8acf585a9121aed1ba9f3b500442">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">男子テニスの元世界ランキング１位で４大大会通算７勝のジョン・マッケンロー氏（６２）が、うつ状態を告白して全仏オープンを棄権した大坂なおみ（２３＝日清食品）の引退を危惧している。 【写真】大...</p>
+<a href="https://news.yahoo.co.jp/articles/c729987eb9ad8acf585a9121aed1ba9f3b500442" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/de9863e5ef890f41dce9e0decc96caae37ca33b4/height=280;version=1;width=400/https%3A%2F%2Famd-pctr.c.yimg.jp%2Fr%2Fiwiz-amd%2F20210604-03254226-tospoweb-000-9-view.jpg" alt="大坂なおみに〝ボルグの悲劇〟再びか　マッケンローも引退を心配（東スポWeb） - Yahoo!ニュース">
+  </a>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+            <li class="bookmark-item js-user-bookmark-item">
+<div class="centerarticle-entry is-image-entry-unit">
+<h3 class="centerarticle-entry-title">
+<a href="https://number.bunshun.jp/articles/-/848323" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title"><img class="centerarticle-entry-favicon" src="https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Fnumber.bunshun.jp%2Farticles%2F-%2F848323" alt="">「なぜ大坂なおみは会見拒否を宣言したのか？」四大大会取材歴20年以上のテニス記者が考える“苦悩の正体” - 女子テニス - Number Web - ナンバー</a>
+</h3>
+<ul class="centerarticle-entry-data">
+<li>
+  <span class="centerarticle-users">
+    <a href="/entry/s/number.bunshun.jp/articles/-/848323" class="js-keyboard-entry-page-openable" title="「なぜ大坂なおみは会見拒否を宣言したのか？」四大大会取材歴20年以上のテニス記者が考える“苦悩の正体” - 女子テニス - Number Web - ナンバー (14ブックマーク)" data-gtm-click-label="user-my-bookmark-users">14 users</a>
+  </span>
+</li>
+<li>
+  <a href="/yuuu1993g/?url=https%3A%2F%2Fnumber.bunshun.jp%2F" title="『number.bunshun.jp』の新着エントリー" data-gtm-click-label="user-my-bookmark-domain">
+    number.bunshun.jp
+  </a>
+</li>
+  <li>
+    <div class="js-bookmark-stock-button" data-initialized="">
+      <button type="button" title="あとで読む" alt="あとで読む" class="readlater-button-text js-bookmark-stock-button-ready" data-href="https://number.bunshun.jp/articles/-/848323">
+        あとで読む
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="centerarticle-entry-contents">
+<p class="centerarticle-entry-summary">「選手の心の健康が無視されている」 こう綴って、全仏オープン開幕4日前に突如勃発した大坂なおみの記者会見拒否騒動の論点は、当初とは随分違う方向へ一気に進み始めた。 “大坂なおみでいるため”のス...</p>
+<a href="https://number.bunshun.jp/articles/-/848323" class="centerarticle-entry-image" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-thumb">
+    <img src="https://cdn-ak-scissors.b.st-hatena.com/image/square/c2d561cde1d36a8f7ac771893e7fb14b265a9836/height=280;version=1;width=400/https%3A%2F%2Fnumber.ismcdn.jp%2Fmwimgs%2F8%2Fd%2F-%2Fimg_8d0d0d79527165acd22003e639a1b35b253885.jpg" alt="「なぜ大坂なおみは会見拒否を宣言したのか？」四大大会取材歴20年以上のテニス記者が考える“苦悩の正体” - 女子テニス - Number Web - ナンバー">
+  </a>
+</div>
+</div>
+<ul class="centerarticle-reaction-following js-user-following-bookmarks-icon">
+</ul>
+<div class="js-user-following-bookmarks-detail is-hidden">
+</div>
+            </li>
+          <li>
+<div class="centerarticle-date-pager">
+<span class="centerarticle-waiting js-read-more-waiting is-hidden"><img src="https://b.st-hatena.com/images/v4/public/common/loading@2x.gif?version=4bb643f4ebb85ca735cd112f23d7809ba8d6531d" alt="残りのブックマークを読み込んでいます" width="16" height="16"></span>
+<ul class="centerarticle-date-pager-list">
+      <li>2021年6月5日</li>
+    <li><a href="/yuuu1993g/hotentry?date=20210604">2021年6月4日</a></li>
+</ul>
+</div>
+          </li>
+        </ul>
+      </div>
+</div>
