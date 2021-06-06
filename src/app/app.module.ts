@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { CenterFeedComponent } from './center-feed/center-feed.component';
-import { LeftIdentityComponent } from './left-identity/left-identity.component';
-import { CenterBookmarksComponent } from './center-bookmarks/center-bookmarks.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CenterFeedComponent } from './components/center-feed/center-feed.component';
+import { LeftIdentityComponent } from './components/left-identity/left-identity.component';
+import { CenterBookmarksComponent } from './components/center-bookmarks/center-bookmarks.component';
 
 @NgModule({
   declarations: [

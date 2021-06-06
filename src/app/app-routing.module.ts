@@ -1,5 +1,5 @@
-import { CenterFeedComponent } from './center-feed/center-feed.component';
-import { CenterBookmarksComponent } from './center-bookmarks/center-bookmarks.component';
+import { CenterFeedComponent } from './components/center-feed/center-feed.component';
+import { CenterBookmarksComponent } from './components/center-bookmarks/center-bookmarks.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
