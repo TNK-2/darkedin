@@ -9,3 +9,5 @@ export interface Bookmark {
   tags: Tag[];
   memo: string;
 }
+
+export const MOCK_BOOKMARKS: Bookmark[] = []

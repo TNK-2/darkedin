@@ -1,3 +1,5 @@
+import { BookmarkService } from './../../services/bookmark/bookmark.service';
+import { Bookmark } from './../../models/bookmark';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CenterBookmarksComponent implements OnInit {
 
-  constructor() { }
+  bookmarks: Bookmark[] = [];
+
+  constructor(
+    private bookmarkService: BookmarkService
+  ) { }
 
   ngOnInit(): void {
+    this.getBookmarks()
+  }
+
+  getBookmarks(): void {
+    this.bookmarkService
+      .getBookMarks()
+      .subscribe(bookmarks => this.bookmarks = bookmarks)
   }
 
 }
