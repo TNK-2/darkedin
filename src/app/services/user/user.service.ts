@@ -9,7 +9,7 @@ export class UserService {
 
   constructor() { }
 
-  getUserInfo(): Observable<User>{
+  getUser(): Observable<User>{
     return of(MOCK_USER);
   }
 }

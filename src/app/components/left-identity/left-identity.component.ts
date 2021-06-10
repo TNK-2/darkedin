@@ -1,3 +1,5 @@
+import { UserService } from './../../services/user/user.service';
+import { User } from 'src/app/models/user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftIdentityComponent implements OnInit {
 
-  constructor() { }
+  user?: User;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  getLoginUser(): void {
+    this.userService
+      .getUser()
+      .subscribe(user => this.user = user)
   }
 
 }
