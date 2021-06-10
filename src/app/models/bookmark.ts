@@ -11,7 +11,9 @@ export interface Bookmark {
   comment: string;
 }
 
-export const MOCK_BOOKMARKS: Bookmark[] = [
+export const MOCK_BOOKMARK: Bookmark = {id: 1, title: "test1", url: "https://logmi.jp/tech/articles/324298", summary: "testtesttesttesttesttesttesttesttesttesttestte", registDate: "2021/06/08", isFavorite: true, tags: [MOCK_TAGS[0], MOCK_TAGS[1]], comment: "test"}
+
+export var MOCK_BOOKMARKS: Bookmark[] = [
   {id: 1, title: "test1", url: "https://logmi.jp/tech/articles/324298", summary: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest", registDate: "2021/06/08", isFavorite: true, tags: [MOCK_TAGS[0], MOCK_TAGS[1]], comment: "test"},
   {id: 2, title: "test1", url: "https://logmi.jp/tech/articles/324298", summary: "testtesttest", registDate: "2021/06/08", isFavorite: true, tags: [MOCK_TAGS[0], MOCK_TAGS[1]], comment: "test"},
   {id: 3, title: "test1", url: "https://logmi.jp/tech/articles/324298", summary: "testtesttest", registDate: "2021/06/08", isFavorite: true, tags: [MOCK_TAGS[0], MOCK_TAGS[1]], comment: "test"},

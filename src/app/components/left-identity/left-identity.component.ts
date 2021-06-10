@@ -1,3 +1,4 @@
+import { BookmarkService } from './../../services/bookmark/bookmark.service';
 import { UserService } from './../../services/user/user.service';
 import { User } from 'src/app/models/user';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,10 @@ export class LeftIdentityComponent implements OnInit {
 
   user?: User;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private bookmarkService: BookmarkService
+  ) { }
 
   ngOnInit(): void {
     this.getLoginUser()
@@ -21,6 +25,12 @@ export class LeftIdentityComponent implements OnInit {
     this.userService
       .getUser()
       .subscribe(user => this.user = user)
+  }
+
+  add(url: string): void {
+    url = url.trim()
+    if (!url) return;
+    this.bookmarkService.addBookmark(url)
   }
 
 }
