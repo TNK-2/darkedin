@@ -1,86 +1,56 @@
 <div class="left-container">
-  <div class="js-user-info" data-user-name="yuuu1993g">
+  <div class="js-user-info">
     <div class="centerarticle-profile">
-      <a href="http://profile.hatena.ne.jp/yuuu1993g/">
-        <img src="https://cdn.profile-image.st-hatena.com/users/yuuu1993g/profile.png" class="centerarticle-profile-image">
+      <a href="http://profile.hatena.ne.jp/{{ user?.id }}/">
+        <img src="{{ user?.imageUrl }}" class="centerarticle-profile-image">
       </a>
       <div class="centerarticle-profile-main">
-        <a href="http://profile.hatena.ne.jp/yuuu1993g/" class="centerarticle-profile-nickname js-user-info-nickname" target="_blank" rel="noopener">たぬき</a>
-        <a href="/yuuu1993g/bookmark" class="centerarticle-profile-username">id:yuuu1993g</a>
+        <a href="http://profile.hatena.ne.jp/{{ user?.id }}/" class="centerarticle-profile-nickname js-user-info-nickname" target="_blank" rel="noopener">{{ user?.name }}</a>
+        <a href="/{{ user?.id }}/bookmark" class="centerarticle-profile-username">{{ user?.id }}</a>
       </div>
     </div>
     <ul class="userprofile-status">
       <li>
-        <a href="/yuuu1993g/bookmark" class="userprofile-status-link" data-gtm-click-label="user-my-count-bookmark">
-          <span class="userprofile-status-count">196</span>
+        <a href="/{{ user?.id }}/bookmark" class="userprofile-status-link" data-gtm-click-label="user-my-count-bookmark">
+          <span class="userprofile-status-count">{{ user?.bookmarkCount }}</span>
           <span class="userprofile-status-text">ブックマーク</span>
         </a>
       </li>
       <li>
-        <a href="/yuuu1993g/follow" class="userprofile-status-link" data-gtm-click-label="user-my-count-follow">
-          <span class="userprofile-status-count js-total-followings">0</span>
+        <a href="/{{ user?.id }}/follow" class="userprofile-status-link" data-gtm-click-label="user-my-count-follow">
+          <span class="userprofile-status-count js-total-followings">{{ user?.favoriteCount }}</span>
           <span class="userprofile-status-text">お気に入り</span>
         </a>
       </li>
     </ul>
   </div>
     <div class="centerarticle-add">
-      <form action="/yuuu1993g/search" method="GET">
+      <form action="/{{ user?.id }}/search" method="GET">
         <input name="q" type="text" autocomplete="off" placeholder="url">
       </form>
-      <a href="/yuuu1993g/add" class="btn-white" data-gtm-click-label="user-addUrl-button">
+      <a href="/{{ user?.id }}/add" class="btn-white" data-gtm-click-label="user-addUrl-button">
         <img src="https://b.hatena.ne.jp/images/v4/public/icon-add.svg" alt="ブックマークを追加">ブックマークを追加
       </a>
     </div>
     <div class="centerarticle-mainNavi">
         <h3 class="centerarticle-mainNavi-title">ブックマーク</h3>
         <ul class="centerarticle-mainNavi-menu">
-          <li><a href="/yuuu1993g/bookmark" class="is-current" data-gtm-click-label="user-my-menu-bookmark">ブックマーク</a></li>
-          <li><a href="/yuuu1993g/unread_bookmark" data-gtm-click-label="user-my-menu-unread">あとで読む</a></li>
+          <li><a href="/{{ user?.id }}/bookmark" class="is-current" data-gtm-click-label="user-my-menu-bookmark">ブックマーク</a></li>
+          <li><a href="/{{ user?.id }}/unread_bookmark" data-gtm-click-label="user-my-menu-unread">あとで読む</a></li>
         </ul>
         <h3 class="centerarticle-mainNavi-title">フィード</h3>
         <ul class="centerarticle-mainNavi-menu">
-          <li><a href="/yuuu1993g/favorite" data-gtm-click-label="user-my-menu-favorite">お気に入り</a></li>
+          <li><a href="/{{ user?.id }}/favorite" data-gtm-click-label="user-my-menu-favorite">お気に入り</a></li>
         </ul>
     </div>
   <div class="centerarticle-sidebar-menu js-user-tags">
     <h3 class="centerarticle-aside-title">タグ</h3>
     <ul class="centerarticle-sub-navi">
-      <li><a href="/yuuu1993g/bookmark" class="is-current" data-gtm-click-label="user-my-tags-all">すべて</a></li>
-        <li class="js-frequent-tag is-hidden">
-          <a href="/yuuu1993g/%E3%81%82%E3%81%A8%E3%81%A7%E8%AA%AD%E3%82%80/" data-gtm-click-label="user-my-tags">
-            あとで読む
-            <span class="count">(51)</span>
-          </a>
-        </li>
-        <li class="js-frequent-tag is-hidden">
-          <a href="/yuuu1993g/%E6%B0%B8%E4%B9%85%E4%BF%9D%E5%AD%98/" data-gtm-click-label="user-my-tags">
-            永久保存
-            <span class="count">(20)</span>
-          </a>
-        </li>
-        <li class="js-frequent-tag is-hidden">
-          <a href="/yuuu1993g/%E9%A3%AF/" data-gtm-click-label="user-my-tags">
-            飯
-            <span class="count">(3)</span>
-          </a>
-        </li>
-        <li class="js-most-frequent-tag">
-          <a href="/yuuu1993g/%E3%81%82%E3%81%A8%E3%81%A7%E8%AA%AD%E3%82%80/" data-gtm-click-label="user-my-tags">
-            あとで読む
-            <span class="count">(51)</span>
-          </a>
-        </li>
-        <li class="js-most-frequent-tag">
-          <a href="/yuuu1993g/%E6%B0%B8%E4%B9%85%E4%BF%9D%E5%AD%98/" data-gtm-click-label="user-my-tags">
-            永久保存
-            <span class="count">(20)</span>
-          </a>
-        </li>
-        <li class="js-most-frequent-tag">
-          <a href="/yuuu1993g/%E9%A3%AF/" data-gtm-click-label="user-my-tags">
-            飯
-            <span class="count">(3)</span>
+      <li><a href="/{{ user?.id }}/bookmark" class="is-current" data-gtm-click-label="user-my-tags-all">すべて</a></li>
+        <li *ngFor="let tag of user?.tags" class="js-most-frequent-tag">
+          <a href="/{{ user?.id }}/{{ tag.name }}/" data-gtm-click-label="user-my-tags">
+            {{ tag.name }}
+            <span class="count">({{ tag.count }})</span>
           </a>
         </li>
     </ul>

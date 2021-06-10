@@ -14,6 +14,7 @@ export class LeftIdentityComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getLoginUser()
   }
 
   getLoginUser(): void {

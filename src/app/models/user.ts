@@ -6,6 +6,7 @@ export interface User {
   imageUrl: string;
   tags: Tag[];
   favoriteCount: number;
+  bookmarkCount: number;
 }
 
 export const MOCK_USER: User = {
@@ -13,5 +14,6 @@ export const MOCK_USER: User = {
   name: "tanuki",
   imageUrl: "https://cdn.profile-image.st-hatena.com/users/yuuu1993g/profile.png",
   tags: [MOCK_TAGS[0], MOCK_TAGS[1], MOCK_TAGS[2]],
-  favoriteCount: 2
+  favoriteCount: 2,
+  bookmarkCount: 5
 }
