@@ -25,7 +25,7 @@
     </ul>
   </div>
     <div class="centerarticle-add">
-      <form><input type="text" autocomplete="off" placeholder="追加するurlを入力" #bookmarkUrl></form>
+      <form><input class="left-form" type="text" autocomplete="off" placeholder="ブックマークするURLを入力" #bookmarkUrl></form>
       <a class="btn-white" data-gtm-click-label="user-addUrl-button" (click)="add(bookmarkUrl.value); bookmarkUrl.value=''">
         <img src="https://b.hatena.ne.jp/images/v4/public/icon-add.svg" alt="ブックマークを追加">ブックマークを追加
       </a>
