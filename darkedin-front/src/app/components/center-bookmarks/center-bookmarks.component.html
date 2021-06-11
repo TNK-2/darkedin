@@ -1,6 +1,6 @@
 <div class="center-container">
   <div class="centerarticle-title-container">
-    <h2 class="centerarticle-title"> yuuu1993gのブックマーク (195) </h2>
+    <h2 class="centerarticle-title"> yuuu1993gのブックマーク ({{ bookmarks.length }}) </h2>
   </div>
   <div class="centerarticle-search">
     <form class="centerarticle-search-form" action="/yuuu1993g/search" method="GET">
@@ -16,27 +16,18 @@
             {{bookmark.title}}
           </a>
         </h3>
-        <div class="centerarticle-entry-contents">
-          <p class="centerarticle-entry-summary">{{bookmark.summary}}</p>
-        </div>
       </div>
       <div class="centerarticle-reaction js-user-bookmark-id-container" id="bookmark-4702432445004098114">
         <div class="centerarticle-reaction-comment js-user-bookmark-comment js-star-sweeped is-short-url-clicks-loaded" data-url="https://logmi.jp/tech/articles/324298" data-user-name="yuuu1993g">
-          <a href="/yuuu1993g/" data-gtm-click-label="user-my-reaction-usericon" class="centerarticle-reaction-thumb">
-            <img src="https://cdn.profile-image.st-hatena.com/users/yuuu1993g/profile.png" alt="yuuu1993g" title="yuuu1993g" class="centerarticle-reaction-image">
-          </a>
           <div class="centerarticle-reaction-main">
-            <span class="centerarticle-reaction-username">
-              <a href="https://b.hatena.ne.jp/yuuu1993g/20210604#bookmark-4702432445004098114" class="js-anchor-path" data-gtm-click-label="user-my-reaction-username">yuuu1993g</a>
-            </span>
             <span class="centerarticle-reaction-timestamp">{{bookmark.registDate}}</span>
-            <div class="centerarticle-reaction-main-comment-tags">
+            <span class="centerarticle-reaction-main-comment-tags">
               <ul class="centerarticle-reaction-tags js-tag-text">
                 <li *ngFor="let tag of bookmark.tags" >
                   <a href="/yuuu1993g/{{tag.name}}/" data-gtm-click-label="user-my-reaction-tag">{{tag.name}}</a>
                 </li>
               </ul>
-            </div>
+            </span>
           </div>
         </div>
       </div>

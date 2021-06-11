@@ -260,7 +260,7 @@ template{display:none;}
 @media (max-width:480px){
 .bookmark-item{padding:12px 0 12px 22px;}
 }
-.centerarticle-entry{margin-bottom:4px;}
+.centerarticle-entry{margin-bottom:4px;min-width:480px;}
 @media (max-width:480px){
 .centerarticle-entry{margin:0;}
 }
@@ -278,11 +278,6 @@ template{display:none;}
 @media (max-width:480px){
 .centerarticle-entry-contents{display:none;}
 }
-.centerarticle-entry-summary{color:#55606a;font-size:12px;line-height:1.6;}
-.centerarticle-entry-summary a{border-bottom:1px solid #ddd;color:#55606a;text-decoration:none;}
-@media (max-width:480px){
-.centerarticle-entry-summary{display:none;}
-}
 .centerarticle-entry-data{display:inline-block;font-size:13px;}
 .centerarticle-entry-data>li{display:inline-block;margin-right:6px;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .centerarticle-entry-data a{color:rgba(70,82,94,.8);text-decoration:none;}
@@ -294,23 +289,15 @@ template{display:none;}
 }
 .is-image-entry-unit .centerarticle-entry-contents{min-height:63px;padding:0 100px 0 0;}
 .is-image-entry-unit .centerarticle-entry-image{display:block;}
-.centerarticle-reaction{background:#f6f7f8;border-bottom:0;margin-top:5px;position:relative;}
-@media (max-width:480px){
-.centerarticle-reaction{margin-top:0;}
-}
+.centerarticle-reaction{background:#f6f7f8;border-bottom:0;position:relative;}
 .centerarticle-reaction-comment{background:#f6f7f8;border-top:1px solid #fff;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-size:12px;margin:0;min-height:53px;padding:12px;}
 .centerarticle-reaction-comment a{color:#009ad0;}
 .centerarticle-reaction-comment a:hover{text-decoration:underline;}
 .centerarticle-reaction-thumb{margin-right:8px;position:relative;}
-.centerarticle-reaction-image{background:#fff;border-radius:3px;height:32px;width:32px;}
-@media (max-width:480px){
-.centerarticle-reaction-image{height:20px;width:20px;}
-}
 .centerarticle-reaction-main{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;margin:-2px 0 0;min-width:0;}
 .centerarticle-reaction-main .bookmarkadd-private:hover,.centerarticle-reaction-main .bookmarkadd-readlater:hover{background-color:#e2e5e8;}
 .centerarticle-reaction-username{display:inline-block;font-size:12px;margin:0 3px 0 0;}
 .centerarticle-reaction-username a{color:#009ad0;text-decoration:none;}
-.centerarticle-reaction-main-comment-tags{margin-top:2px;}
 .centerarticle-reaction-tags{color:rgba(70,82,94,.8);display:inline;}
 .centerarticle-reaction-tags li{display:inline;margin-right:4px;}
 .centerarticle-reaction-tags li:first-child:before{background-color:currentColor;content:"";display:inline-block;height:16px;margin-right:2px;-webkit-mask:url(https://b.st-hatena.com/images/v4/public/icons/ic-tag.svg?version=d9658429b585bfa6776f) no-repeat center center;mask:url(https://b.st-hatena.com/images/v4/public/icons/ic-tag.svg?version=d9658429b585bfa6776f) no-repeat center center;-webkit-mask-size:14px;mask-size:14px;vertical-align:text-bottom;width:14px;}
