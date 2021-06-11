@@ -28,11 +28,33 @@
                 </li>
               </ul>
             </span>
-            <div class="js-comment"> {{bookmark.comment}} </div>
+            <div> {{bookmark.comment}} </div>
             <div class="centerarticle-reaction-area">
               <span class="centerarticle-reaction-edit">編集</span>
               <span class="centerarticle-reaction-delete">削除</span>
             </div>
+
+            <div class="bookmarkadd-comment js-annotation-component">
+              <textarea class="bookmarkadd-comment-form" name="annotation" placeholder="コメントを入力してください (省略可)" aria-label="コメントを入力 (省略可)"></textarea>
+              <div class="bookmarkadd-comment-footer">
+　              <span class="bookmarkadd-comment-count">
+                  <span class="js-bookmarkadd-comment-count">0</span>
+                  <span class="bookmarkadd-comment-slash">/</span>
+                  <span class="js-bookmarkadd-comment-limit">100</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="bookmarkadd-options">
+              <div class="bookmarkadd-tags">
+                <input type="text" class="bookmarkadd-tags-textbox" placeholder="タグを入力して追加" aria-label="タグを入力して追加(省略可)">
+                <span class="bookmarkadd-btns">
+                  <button class="bookmarkadd-cancel-btn" type="button">キャンセル</button>
+                  <input class="bookmarkadd-submit-btn" type="submit" value="保存する">
+                </span>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
