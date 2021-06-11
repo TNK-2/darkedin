@@ -13,12 +13,16 @@ export class BookmarkService {
     return of(MOCK_BOOKMARKS);
   }
 
-  addBookmark(url: string) {
-    const bookMark = this.getBookMarkDetal(url);
-    // push bookmark
+  addBookmark(url: string): void {
+    console.log("addBookmark!");
   }
 
-  private getBookMarkDetal(url: string): Bookmark {
-    return MOCK_BOOKMARK;
+  updateBookmark(bookmark: Bookmark) {
+    console.log("updateBookmark!");
   }
+
+  deleteBookmark(id: number): void {
+    console.log("deleteBookmark!");
+  }
+
 }

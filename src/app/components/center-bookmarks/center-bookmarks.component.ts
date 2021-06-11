@@ -25,4 +25,12 @@ export class CenterBookmarksComponent implements OnInit {
       .subscribe(bookmarks => this.bookmarks = bookmarks)
   }
 
+  updateBookmark(): void {
+    this.bookmarkService.updateBookmark({} as Bookmark);
+  }
+
+  deleteBookmark(): void {
+    this.bookmarkService.deleteBookmark(1);
+  }
+
 }
