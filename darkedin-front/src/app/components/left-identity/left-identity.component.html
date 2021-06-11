@@ -16,12 +16,14 @@
           <span class="userprofile-status-text">ブックマーク</span>
         </a>
       </li>
+      <!--
       <li>
         <a href="/{{ user?.id }}/follow" class="userprofile-status-link" data-gtm-click-label="user-my-count-follow">
           <span class="userprofile-status-count js-total-followings">{{ user?.favoriteCount }}</span>
           <span class="userprofile-status-text">お気に入り</span>
         </a>
       </li>
+      -->
     </ul>
   </div>
     <div class="centerarticle-add">
@@ -31,15 +33,17 @@
       </a>
     </div>
     <div class="centerarticle-mainNavi">
-        <h3 class="centerarticle-mainNavi-title">ブックマーク</h3>
-        <ul class="centerarticle-mainNavi-menu">
-          <li><a href="/{{ user?.id }}/bookmark" class="is-current" data-gtm-click-label="user-my-menu-bookmark">ブックマーク</a></li>
-          <li><a href="/{{ user?.id }}/unread_bookmark" data-gtm-click-label="user-my-menu-unread">あとで読む</a></li>
-        </ul>
-        <h3 class="centerarticle-mainNavi-title">フィード</h3>
-        <ul class="centerarticle-mainNavi-menu">
-          <li><a href="/{{ user?.id }}/favorite" data-gtm-click-label="user-my-menu-favorite">お気に入り</a></li>
-        </ul>
+      <h3 class="centerarticle-mainNavi-title">ブックマーク</h3>
+      <ul class="centerarticle-mainNavi-menu">
+        <li><a href="/{{ user?.id }}/bookmark" class="is-current" data-gtm-click-label="user-my-menu-bookmark">ブックマーク</a></li>
+        <li><a href="/{{ user?.id }}/unread_bookmark" data-gtm-click-label="user-my-menu-unread">あとで読む</a></li>
+      </ul>
+    <!--
+      <h3 class="centerarticle-mainNavi-title">フィード</h3>
+      <ul class="centerarticle-mainNavi-menu">
+        <li><a href="/{{ user?.id }}/favorite" data-gtm-click-label="user-my-menu-favorite">お気に入り</a></li>
+      </ul>
+    -->
     </div>
   <div class="centerarticle-sidebar-menu js-user-tags">
     <h3 class="centerarticle-aside-title">タグ</h3>
