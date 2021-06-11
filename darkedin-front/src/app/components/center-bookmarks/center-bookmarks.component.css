@@ -105,7 +105,7 @@ template{display:none;}
 @media (max-width:480px){
   .bookmarkadd-tags{background-color:#fff;border:1px solid #ccc;border-radius:0 0 3px 3px;border-top:none;margin:0 0 16px;width:100%;}
 }
-.bookmarkadd-tags-textbox{border:1px solid #ccc;border-radius:3px;-webkit-appearance:none;background:transparent;-webkit-box-sizing:border-box;box-sizing:border-box;color:currentColor;cursor:pointer;font-size:13px;height:24px;line-height:normal;outline:none;padding:4px 24px 4px 6px;vertical-align:middle;width:200px;}
+.bookmarkadd-tags-textbox{border:1px solid #ccc;border-radius:3px;-webkit-appearance:none;background:transparent;-webkit-box-sizing:border-box;box-sizing:border-box;color:currentColor;cursor:pointer;font-size:13px;height:26px;line-height:normal;outline:none;padding:4px 24px 4px 6px;vertical-align:middle;width:200px;}
 .bookmarkadd-tags-textbox:focus{cursor:text;}
 .bookmarkadd-tags-textbox::-webkit-input-placeholder{color:rgba(70,82,94,.8);opacity:1;}
 .bookmarkadd-tags-textbox::-moz-placeholder{color:rgba(70,82,94,.8);opacity:1;}
