@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CenterBookmarksComponent implements OnInit {
 
-  bookmarks: Bookmark[] = [];
+  bookmarks: { value: Bookmark, isEditing: boolean }[] = [];
 
   constructor(
     private bookmarkService: BookmarkService
@@ -22,7 +22,13 @@ export class CenterBookmarksComponent implements OnInit {
   getBookmarks(): void {
     this.bookmarkService
       .getBookMarks()
-      .subscribe(bookmarks => this.bookmarks = bookmarks)
+      .subscribe(bookmarks => bookmarks.map(it => {
+        this.bookmarks.push({value: it, isEditing: false})
+      }))
+  }
+
+  toggleEditing(bookmark: { value: Bookmark, isEditing: boolean }): void {
+    bookmark.isEditing = !bookmark.isEditing
   }
 
   updateBookmark(): void {

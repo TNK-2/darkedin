@@ -4,57 +4,60 @@
   </div>
   <div class="centerarticle-search">
     <form class="centerarticle-search-form" action="/yuuu1993g/search" method="GET">
-      <input name="q" type="text" autocomplete="off" class="centerarticle-search-field js-bookmark-incremental-search-field" placeholder="ブックマークを検索">
+      <input name="q" type="text" autocomplete="off" class="centerarticle-search-field" placeholder="ブックマークを検索">
       <input class="is-hidden" type="submit" value="検索">
     </form>
   </div>
-  <ul class="js-user-bookmark-item-list js-keyboard-controllable-container">
-    <li *ngFor="let bookmark of bookmarks" class="bookmark-item js-user-bookmark-item">
+  <ul>
+    <li *ngFor="let bookmark of bookmarks" class="bookmark-item">
       <div class="centerarticle-entry is-image-entry-unit">
         <h3 class="centerarticle-entry-title">
-          <a href="{{bookmark.url}}" class="js-clickable-link js-keyboard-openable" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title">
-            {{bookmark.title}}
+          <a href="{{bookmark.value.url}}" target="_blank" rel="noopener" data-gtm-click-label="user-my-bookmark-title">
+            {{bookmark.value.title}}
           </a>
         </h3>
       </div>
-      <div class="centerarticle-reaction js-user-bookmark-id-container" id="bookmark-4702432445004098114">
-        <div class="centerarticle-reaction-comment js-user-bookmark-comment js-star-sweeped is-short-url-clicks-loaded" data-url="https://logmi.jp/tech/articles/324298" data-user-name="yuuu1993g">
+      <div class="centerarticle-reaction" id="bookmark-4702432445004098114">
+        <div class="centerarticle-reaction-comment is-short-url-clicks-loaded" data-url="https://logmi.jp/tech/articles/324298" data-user-name="yuuu1993g">
           <div class="centerarticle-reaction-main">
-            <span class="centerarticle-reaction-timestamp">{{bookmark.registDate}}</span>
-            <span class="centerarticle-reaction-main-comment-tags">
-              <ul class="centerarticle-reaction-tags js-tag-text">
-                <li *ngFor="let tag of bookmark.tags" >
-                  <a href="/yuuu1993g/{{tag.name}}/" data-gtm-click-label="user-my-reaction-tag">{{tag.name}}</a>
-                </li>
-              </ul>
+
+            <span [hidden]="bookmark.isEditing">
+              <span class="centerarticle-reaction-timestamp">{{bookmark.value.registDate}}</span>
+              <span class="centerarticle-reaction-main-comment-tags">
+                <ul class="centerarticle-reaction-tags">
+                  <li *ngFor="let tag of bookmark.value.tags" >
+                    <a href="/yuuu1993g/{{tag.name}}/" data-gtm-click-label="user-my-reaction-tag">{{tag.name}}</a>
+                  </li>
+                </ul>
+              </span>
+              <div> {{bookmark.value.comment}} </div>
+              <div class="centerarticle-reaction-area">
+                <span class="centerarticle-reaction-edit" (click)="toggleEditing(bookmark)">編集</span>
+                <span class="centerarticle-reaction-delete">削除</span>
+              </div>
             </span>
-            <div> {{bookmark.comment}} </div>
-            <div class="centerarticle-reaction-area">
-              <span class="centerarticle-reaction-edit">編集</span>
-              <span class="centerarticle-reaction-delete">削除</span>
-            </div>
 
-            <div class="bookmarkadd-comment js-annotation-component">
-              <textarea class="bookmarkadd-comment-form" name="annotation" placeholder="コメントを入力してください (省略可)" aria-label="コメントを入力 (省略可)"></textarea>
-              <div class="bookmarkadd-comment-footer">
-　              <span class="bookmarkadd-comment-count">
-                  <span class="js-bookmarkadd-comment-count">0</span>
-                  <span class="bookmarkadd-comment-slash">/</span>
-                  <span class="js-bookmarkadd-comment-limit">100</span>
-                </span>
+            <span [hidden]="!bookmark.isEditing">
+              <div class="bookmarkadd-comment">
+                <textarea class="bookmarkadd-comment-form" name="annotation" placeholder="コメントを入力してください (省略可)" aria-label="コメントを入力 (省略可)"></textarea>
+                <div class="bookmarkadd-comment-footer">
+  　              <span class="bookmarkadd-comment-count">
+                    <span>0</span>
+                    <span class="bookmarkadd-comment-slash">/</span>
+                    <span>100</span>
+                  </span>
+                </div>
               </div>
-            </div>
-
-            <div class="bookmarkadd-options">
-              <div class="bookmarkadd-tags">
-                <input type="text" class="bookmarkadd-tags-textbox" placeholder="タグを入力して追加" aria-label="タグを入力して追加(省略可)">
-                <span class="bookmarkadd-btns">
-                  <button class="bookmarkadd-cancel-btn" type="button">キャンセル</button>
-                  <input class="bookmarkadd-submit-btn" type="submit" value="保存する">
-                </span>
+              <div class="bookmarkadd-options">
+                <div class="bookmarkadd-tags">
+                  <input type="text" class="bookmarkadd-tags-textbox" placeholder="タグを入力して追加" aria-label="タグを入力して追加(省略可)">
+                  <span class="bookmarkadd-btns">
+                    <button class="bookmarkadd-cancel-btn" type="button" (click)="toggleEditing(bookmark)">キャンセル</button>
+                    <input class="bookmarkadd-submit-btn" type="submit" value="保存する">
+                  </span>
+                </div>
               </div>
-            </div>
-
+            </span>
           </div>
         </div>
       </div>
@@ -63,7 +66,7 @@
     <!--
     <li>
       <div class="centerarticle-pager">
-        <span class="centerarticle-waiting js-read-more-waiting is-hidden"><img src="https://b.st-hatena.com/images/v4/public/common/loading@2x.gif?version=4bb643f4ebb85ca735cd112f23d7809ba8d6531d" alt="残りのブックマークを読み込んでいます" width="16" height="16"></span>
+        <span class="centerarticle-waiting is-hidden"><img src="https://b.st-hatena.com/images/v4/public/common/loading@2x.gif?version=4bb643f4ebb85ca735cd112f23d7809ba8d6531d" alt="残りのブックマークを読み込んでいます" width="16" height="16"></span>
             <a href="/yuuu1993g/bookmark?page=1">前のページ</a>
               <span><a href="/yuuu1993g/bookmark?page=1">1</a></span>
               <span>2</span>
