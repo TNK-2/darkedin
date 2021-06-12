@@ -33,7 +33,7 @@
               <div> {{bookmark.value.comment}} </div>
               <div class="centerarticle-reaction-area">
                 <span class="centerarticle-reaction-edit" (click)="toggleEditing(bookmark)">編集</span>
-                <span class="centerarticle-reaction-delete">削除</span>
+                <span class="centerarticle-reaction-delete" (click)="deleteBookmark(bookmark.value.id);">削除</span>
               </div>
             </span>
 
@@ -53,7 +53,7 @@
                   <input type="text" class="bookmarkadd-tags-textbox" placeholder="タグを入力して追加" aria-label="タグを入力して追加(省略可)">
                   <span class="bookmarkadd-btns">
                     <button class="bookmarkadd-cancel-btn" type="button" (click)="toggleEditing(bookmark)">キャンセル</button>
-                    <input class="bookmarkadd-submit-btn" type="submit" value="保存する">
+                    <input class="bookmarkadd-submit-btn" type="submit" value="保存する" (click)="updateBookmark(bookmark.value);toggleEditing(bookmark)">
                   </span>
                 </div>
               </div>

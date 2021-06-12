@@ -31,12 +31,12 @@ export class CenterBookmarksComponent implements OnInit {
     bookmark.isEditing = !bookmark.isEditing
   }
 
-  updateBookmark(): void {
-    this.bookmarkService.updateBookmark({} as Bookmark);
+  updateBookmark(bookmark: Bookmark): void {
+    this.bookmarkService.updateBookmark(bookmark);
   }
 
-  deleteBookmark(): void {
-    this.bookmarkService.deleteBookmark(1);
+  deleteBookmark(id: number): void {
+    this.bookmarkService.deleteBookmark(id);
   }
 
 }

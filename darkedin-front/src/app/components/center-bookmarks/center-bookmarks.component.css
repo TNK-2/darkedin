@@ -284,14 +284,12 @@ template{display:none;}
 .centerarticle-reaction-username a{color:#009ad0;text-decoration:none;}
 .centerarticle-reaction-tags{color:rgba(70,82,94,.8);display:inline;}
 .centerarticle-reaction-tags li{display:inline;margin-right:4px;}
-.centerarticle-reaction-tags li:first-child:before{background-color:currentColor;content:"";display:inline-block;height:16px;margin-right:2px;-webkit-mask:url(https://b.st-hatena.com/images/v4/public/icons/ic-tag.svg?version=d9658429b585bfa6776f) no-repeat center center;mask:url(https://b.st-hatena.com/images/v4/public/icons/ic-tag.svg?version=d9658429b585bfa6776f) no-repeat center center;-webkit-mask-size:14px;mask-size:14px;vertical-align:text-bottom;width:14px;}
 .centerarticle-reaction-tags li a{color:currentColor;}
 .centerarticle-reaction-tags li a:hover{text-decoration:underline;}
 .centerarticle-reaction-foot{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-top:3px;}
 .centerarticle-reaction-meta,.centerarticle-reaction-meta a{color:rgba(70,82,94,.8);}
 .centerarticle-reaction-meta .comment-permalink{font-size:10.5px;}
 .centerarticle-reaction-meta .comment-permalink{margin-right:8px;}
-.centerarticle-reaction-meta .comment-permalink a:before{background-color:currentColor;content:"";display:inline-block;height:10.5px;-webkit-mask:url(https://b.st-hatena.com/images/v4/public/icons/ic-link.svg?version=4c3ef34938a4d6db06a6) no-repeat;mask:url(https://b.st-hatena.com/images/v4/public/icons/ic-link.svg?version=4c3ef34938a4d6db06a6) no-repeat;-webkit-mask-position:center -2px;mask-position:center -2px;-webkit-mask-size:13px;mask-size:13px;vertical-align:middle;width:13px;}
 .centerarticle-reaction-timestamp{color:rgba(70,82,94,.8);}
 .centerarticle-reaction-menu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-bottom:-4px;margin-left:auto;margin-right:-4px;position:relative;}
 .centerarticle-reaction-following{background:#f6f7f8;border-top:1px solid #fff;line-height:1;padding:0 80px 0 10px;position:relative;}
