@@ -56,7 +56,9 @@
                     <input class="bookmarkadd-submit-btn" type="submit" value="保存する" (click)="updateBookmark(bookmark.value);toggleEditing(bookmark);">
                   </span>
                   <ul class="search-result">
-                    <li *ngFor="let tag of tags$ | async">{{tag.name}}</li>
+                    <li *ngFor="let tag of tags$ | async">
+                      <input type="checkbox" value="{{tag.id}}" [checked]="isTagged(tag.id, bookmark.value)"> {{tag.name}}
+                    </li>
                   </ul>
                 </div>
               </div>

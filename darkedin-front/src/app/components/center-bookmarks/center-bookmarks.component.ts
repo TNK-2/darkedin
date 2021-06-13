@@ -71,4 +71,8 @@ export class CenterBookmarksComponent implements OnInit {
     this.bookmarkService.deleteBookmark(id);
   }
 
+  isTagged(tagId: number, bookmark: Bookmark): boolean {
+    return bookmark.tags.filter(t => t.id == tagId).length > 0
+  }
+
 }
