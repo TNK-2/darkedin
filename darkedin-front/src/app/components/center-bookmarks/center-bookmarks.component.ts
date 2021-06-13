@@ -18,7 +18,7 @@ export class CenterBookmarksComponent implements OnInit {
   bookmarks: { value: Bookmark, isEditing: boolean }[] = [];
   user: User = MOCK_USER;
   tags$: Observable<Tag[]> = of([]);
-  private searchTerms = new Subject<string>();
+  private tagSearchTerms = new Subject<string>();
 
   constructor(
     private bookmarkService: BookmarkService,
@@ -29,7 +29,7 @@ export class CenterBookmarksComponent implements OnInit {
   ngOnInit(): void {
     this.getBookmarks();
     this.getUser();
-    this.tags$ = this.searchTerms.pipe(
+    this.tags$ = this.tagSearchTerms.pipe(
       // 各キーストロークの後、検索前に300ms待つ
       debounceTime(300),
       // 直前の検索語と同じ場合は無視する
@@ -56,14 +56,15 @@ export class CenterBookmarksComponent implements OnInit {
   }
 
   search(term: string) {
-    this.searchTerms.next(term)
+    this.tagSearchTerms.next(term)
   }
 
   toggleEditing(bookmark: { value: Bookmark, isEditing: boolean }): void {
     bookmark.isEditing = !bookmark.isEditing;
   }
 
-  updateBookmark(bookmark: Bookmark): void {
+  updateBookmark(bookmark: Bookmark, comment: string): void {
+    bookmark.comment = comment;
     this.bookmarkService.updateBookmark(bookmark);
   }
 
@@ -73,6 +74,14 @@ export class CenterBookmarksComponent implements OnInit {
 
   isTagged(tagId: number, bookmark: Bookmark): boolean {
     return bookmark.tags.filter(t => t.id == tagId).length > 0
+  }
+
+  changeTag(e: any, bookmark: Bookmark, tag: Tag): void {
+    if(e.target.cheched && !this.isTagged(tag.id, bookmark)) {
+      bookmark.tags.push(tag);
+    } else {
+      bookmark.tags = bookmark.tags.filter(t => t.id != tag.id);
+    }
   }
 
 }

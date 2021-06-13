@@ -39,7 +39,7 @@
 
             <span [hidden]="!bookmark.isEditing">
               <div class="bookmarkadd-comment">
-                <textarea class="bookmarkadd-comment-form" name="annotation" placeholder="コメントを入力してください (省略可)"></textarea>
+                <textarea class="bookmarkadd-comment-form" #commentArea placeholder="コメントを入力してください (省略可)">{{bookmark.value.comment}}</textarea>
                 <div class="bookmarkadd-comment-footer">
   　              <span class="bookmarkadd-comment-count">
                     <span>0</span>
@@ -53,11 +53,11 @@
                   <input #tagSearchBox type="text" class="bookmarkadd-tags-textbox" placeholder="タグを入力して追加" (focus)="search(tagSearchBox.value)">
                   <span class="bookmarkadd-btns">
                     <button class="bookmarkadd-cancel-btn" type="button" (click)="toggleEditing(bookmark);">キャンセル</button>
-                    <input class="bookmarkadd-submit-btn" type="submit" value="保存する" (click)="updateBookmark(bookmark.value);toggleEditing(bookmark);">
+                    <input class="bookmarkadd-submit-btn" type="submit" value="保存する" (click)="updateBookmark(bookmark.value,commentArea.value);toggleEditing(bookmark);">
                   </span>
                   <ul class="search-result">
                     <li *ngFor="let tag of tags$ | async">
-                      <input type="checkbox" value="{{tag.id}}" [checked]="isTagged(tag.id, bookmark.value)"> {{tag.name}}
+                      <input type="checkbox" (change)="changeTag($event, bookmark.value, tag)" [checked]="isTagged(tag.id, bookmark.value)"> {{tag.name}}
                     </li>
                   </ul>
                 </div>
