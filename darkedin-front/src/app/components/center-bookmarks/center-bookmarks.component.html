@@ -32,14 +32,14 @@
               </span>
               <div> {{bookmark.value.comment}} </div>
               <div class="centerarticle-reaction-area">
-                <span class="centerarticle-reaction-edit" (click)="toggleEditing(bookmark)">編集</span>
+                <span class="centerarticle-reaction-edit" (click)="toggleEditing(bookmark);">編集</span>
                 <span class="centerarticle-reaction-delete" (click)="deleteBookmark(bookmark.value.id);">削除</span>
               </div>
             </span>
 
             <span [hidden]="!bookmark.isEditing">
               <div class="bookmarkadd-comment">
-                <textarea class="bookmarkadd-comment-form" name="annotation" placeholder="コメントを入力してください (省略可)" aria-label="コメントを入力 (省略可)"></textarea>
+                <textarea class="bookmarkadd-comment-form" name="annotation" placeholder="コメントを入力してください (省略可)"></textarea>
                 <div class="bookmarkadd-comment-footer">
   　              <span class="bookmarkadd-comment-count">
                     <span>0</span>
@@ -50,11 +50,14 @@
               </div>
               <div class="bookmarkadd-options">
                 <div class="bookmarkadd-tags">
-                  <input type="text" class="bookmarkadd-tags-textbox" placeholder="タグを入力して追加" aria-label="タグを入力して追加(省略可)">
+                  <input #tagSearchBox type="text" class="bookmarkadd-tags-textbox" placeholder="タグを入力して追加" (focus)="search(tagSearchBox.value)">
                   <span class="bookmarkadd-btns">
-                    <button class="bookmarkadd-cancel-btn" type="button" (click)="toggleEditing(bookmark)">キャンセル</button>
-                    <input class="bookmarkadd-submit-btn" type="submit" value="保存する" (click)="updateBookmark(bookmark.value);toggleEditing(bookmark)">
+                    <button class="bookmarkadd-cancel-btn" type="button" (click)="toggleEditing(bookmark);">キャンセル</button>
+                    <input class="bookmarkadd-submit-btn" type="submit" value="保存する" (click)="updateBookmark(bookmark.value);toggleEditing(bookmark);">
                   </span>
+                  <ul class="search-result">
+                    <li *ngFor="let tag of tags$ | async">{{tag.name}}</li>
+                  </ul>
                 </div>
               </div>
             </span>
