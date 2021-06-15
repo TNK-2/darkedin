@@ -45,18 +45,19 @@
       </ul>
     -->
     </div>
-  <div class="centerarticle-sidebar-menu js-user-tags">
+  <div class="centerarticle-sidebar-menu">
     <h3 class="centerarticle-aside-title">タグ</h3>
     <ul class="centerarticle-sub-navi">
       <div class="centerarticle-add">
         <input class="left-form" type="text" autocomplete="off" placeholder="追加するタグ名を入力しEnter" (keyup.enter)="addTag(tagName.value)" #tagName>
       </div>
-      <li><a href="/bookmarks" class="is-current" data-gtm-click-label="user-my-tags-all">すべて</a></li>
-      <li *ngFor="let tag of user?.tags" class="js-most-frequent-tag">
-        <a href="/{{ tag.name }}/" data-gtm-click-label="user-my-tags">
+      <li class="is-current"><a href="/bookmarks">すべて</a></li>
+      <li *ngFor="let tag of user?.tags">
+        <a href="/{{ tag.name }}/">
           {{ tag.name }}
           <span class="count">({{ tag.count }})</span>
         </a>
+        <b class="delete-icon" (click)="deleteTag(tag.id)">  x</b>
       </li>
     </ul>
   </div>

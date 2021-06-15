@@ -42,4 +42,11 @@ export class LeftIdentityComponent implements OnInit {
     this.tagService.addTag(tagName)
   }
 
+  deleteTag(id: number): void {
+    if(!confirm("タグを削除しますか？")) {
+      return;
+    }
+    this.tagService.deleteTag(id)
+  }
+
 }

@@ -17,4 +17,8 @@ export class TagService {
   addTag(name: string): void {
     MOCK_TAGS.push({id: 4, name: name, count: 0})
   }
+
+  deleteTag(id: number): void {
+    console.log("delete : " + id)
+  }
 }
