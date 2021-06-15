@@ -50,7 +50,7 @@
               </div>
               <div class="bookmarkadd-options">
                 <div class="bookmarkadd-tags">
-                  <input #tagSearchBox type="text" class="bookmarkadd-tags-textbox" placeholder="タグを入力して追加" (focus)="search(tagSearchBox.value)">
+                  <input #tagSearchBox type="text" class="bookmarkadd-tags-textbox" placeholder="タグ名検索" (focus)="tagSearch(tagSearchBox.value)">
                   <span class="bookmarkadd-btns">
                     <button class="bookmarkadd-cancel-btn" type="button" (click)="toggleEditing(bookmark);">キャンセル</button>
                     <input class="bookmarkadd-submit-btn" type="submit" value="保存する" (click)="updateBookmark(bookmark.value,commentArea.value);toggleEditing(bookmark);">

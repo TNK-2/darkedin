@@ -55,7 +55,7 @@ export class CenterBookmarksComponent implements OnInit {
       })
   }
 
-  search(term: string) {
+  tagSearch(term: string) {
     this.tagSearchTerms.next(term)
   }
 

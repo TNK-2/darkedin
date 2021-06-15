@@ -6,12 +6,12 @@
       </a>
       <div class="centerarticle-profile-main">
         <a href="http://profile.hatena.ne.jp/{{ user?.id }}/" class="centerarticle-profile-nickname js-user-info-nickname" target="_blank" rel="noopener">{{ user?.name }}</a>
-        <a href="/{{ user?.id }}/bookmark" class="centerarticle-profile-username">{{ user?.id }}</a>
+        <a href="/bookmark" class="centerarticle-profile-username">{{ user?.id }}</a>
       </div>
     </div>
     <ul class="userprofile-status">
       <li>
-        <a href="/{{ user?.id }}/bookmark" class="userprofile-status-link" data-gtm-click-label="user-my-count-bookmark">
+        <a href="/bookmark" class="userprofile-status-link" data-gtm-click-label="user-my-count-bookmark">
           <span class="userprofile-status-count">{{ user?.bookmarkCount }}</span>
           <span class="userprofile-status-text">ブックマーク</span>
         </a>
@@ -28,15 +28,15 @@
   </div>
     <div class="centerarticle-add">
       <form><input class="left-form" type="text" autocomplete="off" placeholder="ブックマークするURLを入力" #bookmarkUrl></form>
-      <a class="btn-white" data-gtm-click-label="user-addUrl-button" (click)="add(bookmarkUrl.value); bookmarkUrl.value=''">
+      <a class="btn-white" data-gtm-click-label="user-addUrl-button" (click)="addBookMark(bookmarkUrl.value); bookmarkUrl.value=''">
         <img src="https://b.hatena.ne.jp/images/v4/public/icon-add.svg" alt="ブックマークを追加">ブックマークを追加
       </a>
     </div>
     <div class="centerarticle-mainNavi">
       <h3 class="centerarticle-mainNavi-title">ブックマーク</h3>
       <ul class="centerarticle-mainNavi-menu">
-        <li><a href="/{{ user?.id }}/bookmark" class="is-current" data-gtm-click-label="user-my-menu-bookmark">ブックマーク</a></li>
-        <li><a href="/{{ user?.id }}/unread_bookmark" data-gtm-click-label="user-my-menu-unread">あとで読む</a></li>
+        <li><a href="/bookmark" class="is-current" data-gtm-click-label="user-my-menu-bookmark">ブックマーク</a></li>
+        <li><a href="/unread_bookmark" data-gtm-click-label="user-my-menu-unread">あとで読む</a></li>
       </ul>
     <!--
       <h3 class="centerarticle-mainNavi-title">フィード</h3>
@@ -48,13 +48,16 @@
   <div class="centerarticle-sidebar-menu js-user-tags">
     <h3 class="centerarticle-aside-title">タグ</h3>
     <ul class="centerarticle-sub-navi">
-      <li><a href="/{{ user?.id }}/bookmark" class="is-current" data-gtm-click-label="user-my-tags-all">すべて</a></li>
-        <li *ngFor="let tag of user?.tags" class="js-most-frequent-tag">
-          <a href="/{{ user?.id }}/{{ tag.name }}/" data-gtm-click-label="user-my-tags">
-            {{ tag.name }}
-            <span class="count">({{ tag.count }})</span>
-          </a>
-        </li>
+      <div class="centerarticle-add">
+        <input class="left-form" type="text" autocomplete="off" placeholder="追加するタグ名を入力しEnter" (keyup.enter)="addTag(tagName.value)" #tagName>
+      </div>
+      <li><a href="/bookmarks" class="is-current" data-gtm-click-label="user-my-tags-all">すべて</a></li>
+      <li *ngFor="let tag of user?.tags" class="js-most-frequent-tag">
+        <a href="/{{ tag.name }}/" data-gtm-click-label="user-my-tags">
+          {{ tag.name }}
+          <span class="count">({{ tag.count }})</span>
+        </a>
+      </li>
     </ul>
   </div>
 </div>

@@ -1,3 +1,5 @@
+import { TagService } from './../../services/tag/tag.service';
+import { Tag } from './../../models/tag';
 import { BookmarkService } from './../../services/bookmark/bookmark.service';
 import { UserService } from './../../services/user/user.service';
 import { User } from 'src/app/models/user';
@@ -14,7 +16,8 @@ export class LeftIdentityComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private bookmarkService: BookmarkService
+    private bookmarkService: BookmarkService,
+    private tagService: TagService
   ) { }
 
   ngOnInit(): void {
@@ -27,10 +30,16 @@ export class LeftIdentityComponent implements OnInit {
       .subscribe(user => this.user = user)
   }
 
-  add(url: string): void {
+  addBookMark(url: string): void {
     url = url.trim()
     if (!url) return;
     this.bookmarkService.addBookmark(url)
+  }
+
+  addTag(tagName: string): void {
+    tagName = tagName.trim()
+    if (!tagName) return;
+    this.tagService.addTag(tagName)
   }
 
 }

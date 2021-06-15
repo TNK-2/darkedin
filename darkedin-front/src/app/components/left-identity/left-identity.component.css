@@ -34,7 +34,7 @@ li,ul{list-style:none;}
 .centerarticle-profile-nickname{color:#009ad0;font-size:105%;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:119px;}
 .centerarticle-profile-nickname:after{background:url(https://b.st-hatena.com/images/v4/public/userpage/icon-profile-link.svg?version=80c0a7d42cc350448aa3);background-size:10px 10px;content:"";display:inline-block;height:10px;margin-left:4px;width:10px;}
 .centerarticle-profile-username{color:#374148;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:119px;}
-.centerarticle-add .btn-white{padding:5px 0;text-align:center;width:100%;}
+.centerarticle-add .btn-white{padding:5px 0;text-align:center;width:194px;}
 .centerarticle-add .btn-white img{height:15px;margin:0 6px 0 0;vertical-align:text-bottom;width:17px;}
 .centerarticle-mainNavi{margin:20px 0 40px;}
 .centerarticle-mainNavi-title{color:rgba(70,82,94,.8);font-size:12px;margin:0 0 4px;}

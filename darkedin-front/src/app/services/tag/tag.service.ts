@@ -13,4 +13,8 @@ export class TagService {
     console.log("searchByTagNameAndUserId!")
     return of(MOCK_TAGS)
   }
+
+  addTag(name: string): void {
+    MOCK_TAGS.push({id: 4, name: name, count: 0})
+  }
 }
