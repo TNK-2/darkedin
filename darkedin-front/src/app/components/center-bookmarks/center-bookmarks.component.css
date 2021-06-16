@@ -226,8 +226,18 @@ template{display:none;}
 }
 .centerarticle-search-field::-webkit-input-placeholder{color:#55606a;opacity:1;}
 .centerarticle-search-field::-webkit-input-placeholder,.centerarticle-search-field::placeholder{color:#55606a;opacity:1;}
-.centerarticle-searchwindow{background:#fff;border:1px solid #ccc;-webkit-box-shadow:0 2px 6px rgba(0,0,0,.15);box-shadow:0 2px 6px rgba(0,0,0,.15);-webkit-box-sizing:border-box;box-sizing:border-box;display:none;font-size:13px;left:0;padding:20px 20px 0;position:absolute;top:34px;width:520px;z-index:900;}
-.centerarticle-searchwindow-close-button{background:url(https://b.st-hatena.com/images/v4/public/common/icon-close.svg?version=0dea22c86417f0579b30) no-repeat 50%;background-size:12px 12px;border:none;cursor:pointer;height:28px;position:absolute;right:0;top:-34px;width:28px;}
+.centerarticle-searchwindow{background:#fff;border:1px solid #ccc;-webkit-box-shadow:0 2px 6px rgba(0,0,0,.15);box-shadow:0 2px 6px rgba(0,0,0,.15);-webkit-box-sizing:border-box;box-sizing:border-box;font-size:13px;left:0;padding:20px 20px 0;position:absolute;top:34px;width:520px;z-index:900;}
+.centerarticle-searchwindow-title{font-size:14px;margin:0 0 1px;}
+.centerarticle-searchwindow-title a{color:#25282b;}
+.centerarticle-searchwindow-title a:hover{color:#7db4e8;}
+.centerarticle-searchwindow-list>li{font-size:13px;padding:0 0 20px 24px;position:relative;}
+.centerarticle-searchwindow-list>li .favicon{left:0;position:absolute;top:3px;}
+.centerarticle-searchwindow-tags li{margin:0 2px 0 0;}
+.centerarticle-searchwindow-tags li:after{color:rgba(70,82,94,.8);content:",";}
+.centerarticle-searchwindow-tags li:last-child:after{display:none;}
+.centerarticle-searchwindow-tags a{color:rgba(70,82,94,.8);}
+.centerarticle-searchwindow-tags a:hover{text-decoration:underline;}
+.centerarticle-searchwindow-tags a:empty{display:none;}
 .centerarticle-searchwindow-pager{font-size:12px;padding:0 0 16px;text-align:center;}
 .centerarticle-searchwindow-pager .pager-next,.centerarticle-searchwindow-pager .pager-prev{-webkit-appearance:none;background-color:transparent;border:none;border-radius:0;color:#aaa;cursor:default;margin:0 5px;padding:0;position:relative;}
 .centerarticle-searchwindow-pager .pager-next:before,.centerarticle-searchwindow-pager .pager-prev:before{border-style:solid;content:"";height:0;position:absolute;top:5px;width:0;}

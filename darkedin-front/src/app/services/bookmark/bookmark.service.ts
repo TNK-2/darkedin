@@ -13,6 +13,10 @@ export class BookmarkService {
     return of(MOCK_BOOKMARKS);
   }
 
+  searchBookMarks(tarm: string): Observable<Bookmark[]>{
+    return of(MOCK_BOOKMARKS);
+  }
+
   addBookmark(url: string): void {
     console.log("addBookmark!");
   }

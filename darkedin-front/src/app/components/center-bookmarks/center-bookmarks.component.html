@@ -7,6 +7,32 @@
       <input name="q" type="text" autocomplete="off" class="centerarticle-search-field" placeholder="ブックマークを検索">
       <input class="is-hidden" type="submit" value="検索">
     </form>
+    <div *ngIf="bookmarks$ | async" class="centerarticle-searchwindow is-active">
+      <ul class="centerarticle-searchwindow-list">
+        <li *ngFor="let bookmark of bookmarks$ | async">
+          <h3 class="centerarticle-searchwindow-title">
+            <a class="" target="_blank" href="{{bookmark.url}}" title="{{bookmark.title}}">
+              {{bookmark.title}}
+            </a>
+          </h3>
+          <div class="centerarticle-searchwindow-comment">
+            <ul class="centerarticle-searchwindow-tags" data-gtm-click-label="user-bookmarks-incremental-my-bookmark-tags">
+              <li *ngFor="let tag of bookmark.tags" ><a href="/{{tag.name}}">{{tag.name}}</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <!--
+      <div class="centerarticle-searchwindow-pager">
+        <button type="button" class="pager-prev js-prev" data-page="" data-cursor="">前のページ</button><button type="button" class="pager-next js-next is-clickable" data-page="2" data-cursor="6419">次のページ</button>
+      </div>
+      -->
+      <div>
+        <p class="centerarticle-searchwindow-empty-message centerarticle-searchwindow-empty">
+          <strong><span>xxxxxxxx</span></strong>に一致する結果はありませんでした。
+        </p>
+      </div>
+    </div>
   </div>
   <ul>
     <li *ngFor="let bookmark of bookmarks" class="bookmark-item">
@@ -26,7 +52,7 @@
               <span class="centerarticle-reaction-main-comment-tags">
                 <ul class="centerarticle-reaction-tags">
                   <li *ngFor="let tag of bookmark.value.tags" >
-                    <a href="/yuuu1993g/{{tag.name}}/" data-gtm-click-label="user-my-reaction-tag">{{tag.name}}</a>
+                    <a href="/{{tag.name}}/" data-gtm-click-label="user-my-reaction-tag">{{tag.name}}</a>
                   </li>
                 </ul>
               </span>

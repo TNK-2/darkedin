@@ -16,8 +16,10 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 export class CenterBookmarksComponent implements OnInit {
 
   bookmarks: { value: Bookmark, isEditing: boolean }[] = [];
+  bookmarks$: Observable<Bookmark[]> = of([]);
   user: User = MOCK_USER;
   tags$: Observable<Tag[]> = of([]);
+  private bookmarkSearchTerms = new Subject<string>();
   private tagSearchTerms = new Subject<string>();
 
   constructor(
@@ -37,6 +39,14 @@ export class CenterBookmarksComponent implements OnInit {
       // 検索語が変わる度に、新しい検索observableにスイッチする
       switchMap((term: string) => this.tagService.searchByTagNameAndUserId(term, this.user.id)),
     );
+    this.bookmarks$ = this.bookmarkSearchTerms.pipe(
+      // 各キーストロークの後、検索前に300ms待つ
+      debounceTime(300),
+      // 直前の検索語と同じ場合は無視する
+      distinctUntilChanged(),
+      // 検索語が変わる度に、新しい検索observableにスイッチする
+      switchMap((term: string) => this.bookmarkService.searchBookMarks(term))
+    )
   }
 
   getBookmarks(): void {
@@ -53,6 +63,10 @@ export class CenterBookmarksComponent implements OnInit {
       .subscribe(user => {
         this.user = user;
       })
+  }
+
+  bookmarkSearch(term: string) {
+
   }
 
   tagSearch(term: string) {
