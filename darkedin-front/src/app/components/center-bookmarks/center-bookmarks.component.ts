@@ -7,6 +7,7 @@ import { BookmarkService } from './../../services/bookmark/bookmark.service';
 import { Bookmark } from './../../models/bookmark';
 import { Component, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-center-bookmarks',
@@ -15,6 +16,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 })
 export class CenterBookmarksComponent implements OnInit {
 
+  isSearchAcrive: boolean = false;
   bookmarks: { value: Bookmark, isEditing: boolean }[] = [];
   bookmarks$: Observable<Bookmark[]> = of([]);
   user: User = MOCK_USER;
@@ -66,7 +68,7 @@ export class CenterBookmarksComponent implements OnInit {
   }
 
   bookmarkSearch(term: string) {
-
+    this.bookmarkSearchTerms.next(term)
   }
 
   tagSearch(term: string) {

@@ -3,15 +3,15 @@
     <h2 class="centerarticle-title"> yuuu1993gのブックマーク ({{ bookmarks.length }}) </h2>
   </div>
   <div class="centerarticle-search">
-    <form class="centerarticle-search-form" action="/yuuu1993g/search" method="GET">
-      <input name="q" type="text" autocomplete="off" class="centerarticle-search-field" placeholder="ブックマークを検索">
+    <form class="centerarticle-search-form">
+      <input #bookmarkSearchBox name="q" type="text" autocomplete="off" class="centerarticle-search-field" placeholder="ブックマークを検索" (focus)="isSearchAcrive=true" (blur)="isSearchAcrive=false" (input)="bookmarkSearch(bookmarkSearchBox.value)">
       <input class="is-hidden" type="submit" value="検索">
     </form>
-    <div *ngIf="bookmarks$ | async" class="centerarticle-searchwindow is-active">
+    <div [hidden]="!isSearchAcrive" class="centerarticle-searchwindow">
       <ul class="centerarticle-searchwindow-list">
         <li *ngFor="let bookmark of bookmarks$ | async">
           <h3 class="centerarticle-searchwindow-title">
-            <a class="" target="_blank" href="{{bookmark.url}}" title="{{bookmark.title}}">
+            <a target="_blank" href="{{bookmark.url}}" title="{{bookmark.title}}">
               {{bookmark.title}}
             </a>
           </h3>
@@ -26,12 +26,12 @@
       <div class="centerarticle-searchwindow-pager">
         <button type="button" class="pager-prev js-prev" data-page="" data-cursor="">前のページ</button><button type="button" class="pager-next js-next is-clickable" data-page="2" data-cursor="6419">次のページ</button>
       </div>
-      -->
       <div>
         <p class="centerarticle-searchwindow-empty-message centerarticle-searchwindow-empty">
           <strong><span>xxxxxxxx</span></strong>に一致する結果はありませんでした。
         </p>
       </div>
+      -->
     </div>
   </div>
   <ul>
