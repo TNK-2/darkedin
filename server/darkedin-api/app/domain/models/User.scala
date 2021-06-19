@@ -1,3 +1,3 @@
 package domain.models
 
-case class User()
+case class User(id:String, name: String)
