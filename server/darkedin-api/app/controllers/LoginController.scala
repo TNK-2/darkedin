@@ -17,4 +17,8 @@ class LoginController  @Inject()(
     logger.debug(s"redirect url : ${appConf.getGitAuthPath} :: LoginController.index")
     Redirect(appConf.getGitAuthPath)
   }
+
+  def execLogin() =  Action { implicit request: Request[AnyContent] =>
+
+  }
 }
