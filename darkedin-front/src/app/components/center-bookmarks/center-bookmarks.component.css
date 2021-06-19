@@ -300,7 +300,7 @@ template{display:none;}
 .centerarticle-reaction-meta,.centerarticle-reaction-meta a{color:rgba(70,82,94,.8);}
 .centerarticle-reaction-meta .comment-permalink{font-size:10.5px;}
 .centerarticle-reaction-meta .comment-permalink{margin-right:8px;}
-.centerarticle-reaction-timestamp{color:rgba(70,82,94,.8);}
+.centerarticle-reaction-timestamp{color:rgba(70,82,94,.8); margin-right: 3px;}
 .centerarticle-reaction-menu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-bottom:-4px;margin-left:auto;margin-right:-4px;position:relative;}
 .centerarticle-reaction-following{background:#f6f7f8;border-top:1px solid #fff;line-height:1;padding:0 80px 0 10px;position:relative;}
 @media (max-width:480px){
