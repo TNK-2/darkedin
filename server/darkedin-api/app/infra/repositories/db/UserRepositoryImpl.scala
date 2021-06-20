@@ -5,7 +5,6 @@ import java.sql.Timestamp
 import domain.models.User
 import domain.repositories.UserRepository
 import javax.inject.{Inject, Singleton}
-import org.joda.time.DateTime
 import play.api.db.slick.DatabaseConfigProvider
 import slick.jdbc.JdbcProfile
 
