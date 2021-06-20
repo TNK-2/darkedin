@@ -5,6 +5,6 @@ import domain.models.User
 import scala.concurrent.Future
 
 trait UserRepository {
-  def findById(id: String): Future[Option[String]]
-  def save(user: User): Future[Unit]
+  def findById(id: Int): Future[Option[User]]
+  def save(user: User): Future[Int]
 }
