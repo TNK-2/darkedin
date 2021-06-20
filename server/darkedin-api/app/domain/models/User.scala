@@ -1,15 +1,16 @@
 package domain.models
 
-import akka.http.scaladsl.model.DateTime
+import org.joda.time.DateTime
 
 case class User(
-  val id:Int,
-  val name: String,
-  val gitUrl: String,
-  val avatarUrl: String,
-  val accessToken: String,
-  val tokenExpiredAt: DateTime,
-  val createdAt: DateTime,
-  val updatedAt: DateTime
+  id:Int,
+  name: String,
+  gitUrl: String,
+  gitName: String,
+  avatarUrl: String,
+  accessToken: String,
+  tokenExpiredAt: DateTime,
+  createdAt: DateTime,
+  updatedAt: DateTime
 )
 
