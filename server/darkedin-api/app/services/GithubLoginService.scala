@@ -1,14 +1,17 @@
 package services
 
 import domain.models.User
-import domain.repositories.GitHubRepository
+import infra.repositories.api.GitHubRepositoryImpl
 import javax.inject.Inject
 
 import scala.concurrent.Future
 
 class GithubLoginService @Inject()(
-  gitHubRepository: GitHubRepository
+  gitHubRepository: GitHubRepositoryImpl
 ) {
 
   def execLogin(): Future[User] = ???
+
+  def esTest(): Future[Unit] =
+    gitHubRepository.esTest()
 }

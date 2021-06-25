@@ -5,7 +5,9 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.13.6"
+val AWSJavaSdkVersion = "2.5.52"
+
+scalaVersion := "2.12.6"
 
 libraryDependencies += guice
 libraryDependencies += ws
@@ -13,7 +15,11 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0
 libraryDependencies += "com.typesafe.play" %% "play-slick" % "5.0.0"
 libraryDependencies += "com.typesafe.play" %% "play-slick-evolutions" % "5.0.0"
 libraryDependencies += "com.h2database" % "h2" % "1.4.192"
-
+libraryDependencies += "software.amazon.awssdk" % "auth" % AWSJavaSdkVersion
+libraryDependencies += "software.amazon.awssdk" % "core" % AWSJavaSdkVersion
+libraryDependencies += "software.amazon.awssdk" % "regions" % AWSJavaSdkVersion
+libraryDependencies += "com.sksamuel.elastic4s" %% "elastic4s-core" % "7.10.7"
+libraryDependencies += "org.apache.httpcomponents" % "httpclient" % "4.5.3"
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.pon.dinapp.controllers._"
 
