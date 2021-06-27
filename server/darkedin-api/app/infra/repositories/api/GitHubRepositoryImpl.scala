@@ -1,15 +1,17 @@
 package infra.repositories.api
 
 import conf.ApplicationConf
-import domain.models.User
+import domain.models.GitHubUser
+import domain.models.exception.InvalidCode
 import domain.repositories.GitHubRepository
 import javax.inject.Inject
 import play.api.Logger
-import play.api.libs.ws.WSClient
+import play.api.libs.ws.{WSClient, WSResponse}
 import play.api.libs.ws.ahc.AhcCurlRequestLogger
 import utils.aws.Aws4RequestSigner
 
 import scala.concurrent.{ExecutionContext, Future}
+import scala.util.{Failure, Success}
 
 class GitHubRepositoryImpl @Inject()(
   ws: WSClient,
@@ -20,7 +22,7 @@ class GitHubRepositoryImpl @Inject()(
 
   private val logger = Logger(this.getClass)
 
-  override def getAuthToken(code: String): Future[Option[String]] = {
+  override def getAuthToken(code: String): Future[Either[InvalidCode, String]] = {
     val query =
       s"""
          |{
@@ -33,16 +35,27 @@ class GitHubRepositoryImpl @Inject()(
     ws.url(appConf.gitAccessTokenPath)
       .withHttpHeaders("Content-Type" -> "application/json")
       .post(query)
-      .map{ resp =>
+      .map { implicit resp =>
+        this.statusCheck
         resp.body.split("&").headOption match {
           case Some(str) if str.contains("access_token=") =>
-            Some(resp.body.split("=").last)
-          case _ => None
+            Right(resp.body.split("=").last)
+          case _ =>
+            Left(InvalidCode("不正なレスポンス", resp.body))
         }
       }
   }
 
-  override def getUserInfo(authToken: String): Future[Option[User]] = ???
+  override def getUserInfo(authToken: String): Future[Either[InvalidCode, GitHubUser]] = {
+    ws.url("https://api.github.com/user")
+      .withHttpHeaders("Authorization" -> s"token ${authToken}")
+      .get()
+      .map { implicit resp =>
+        this.statusCheck
+        logger.info(s"github user: ${resp.body}")
+        Right(GitHubUser())
+      }
+  }
 
   override def esTest(): Future[Unit] = {
     val query =
@@ -79,4 +92,8 @@ class GitHubRepositoryImpl @Inject()(
       .post(query)
       .map { resp => logger.warn(s"ess wsclient result... status:${resp.status}, ${resp.statusText}... body:${resp.body}... header:${resp.headers.toString}... underlying:${resp.underlying.toString}") }
   }
+
+  private def statusCheck(implicit wsResponse: WSResponse) =
+    if (wsResponse.status < 300) throw new RuntimeException("トークン取得API失敗")
+
 }
