@@ -14,10 +14,24 @@ class GithubLoginService @Inject()(
 
   def execLogin(code: String): Future[User] = {
     for {
-      token <- gitHubRepository.getAuthToken(code)
-
+      token <- gitHubRepository
+        .getAuthToken(code)
+        .map(_.right.get)
+      user  <- gitHubRepository
+        .getUserInfo(token)
+        .map(_.right.get)
     } yield {
-
+      User(
+        id = ???,
+        name = ???,
+        gitUrl = ???,
+        gitName = ???,
+        avatarUrl = ???,
+        accessToken = ???,
+        tokenExpiredAt = ???,
+        createdAt = ???,
+        updatedAt = ???
+      )
     }
 
   }

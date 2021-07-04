@@ -30,7 +30,7 @@ class UserRepositoryImpl @Inject()
           gitUrl = user.gitUrl,
           gitName = user.gitName,
           avatarUrl = user.avatarUrl,
-          accessToken = user.accessToken,
+          accessToken = Some(user.accessToken),
           tokenExpiredAt = user.createdAt.toLocalDateTime,
           createdAt = user.createdAt.toLocalDateTime,
           updatedAt = user.updatedAt.toLocalDateTime
@@ -46,7 +46,7 @@ class UserRepositoryImpl @Inject()
       gitUrl = user.gitUrl,
       gitName = user.gitName,
       avatarUrl = user.avatarUrl,
-      accessToken = user.accessToken,
+      accessToken = user.accessToken.getOrElse(""),
       tokenExpiredAt = Timestamp.valueOf(user.tokenExpiredAt),
       createdAt = Timestamp.valueOf(user.createdAt),
       updatedAt = Timestamp.valueOf(user.updatedAt)

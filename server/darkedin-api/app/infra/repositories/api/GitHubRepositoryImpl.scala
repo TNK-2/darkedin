@@ -1,17 +1,20 @@
 package infra.repositories.api
 
+import java.time.LocalDateTime
+
 import conf.ApplicationConf
-import domain.models.GitHubUser
-import domain.models.exception.InvalidCode
+import domain.models.User
+import domain.models.exception.{InvalidCode, InvalidGitUser}
 import domain.repositories.GitHubRepository
 import javax.inject.Inject
 import play.api.Logger
 import play.api.libs.ws.{WSClient, WSResponse}
 import play.api.libs.ws.ahc.AhcCurlRequestLogger
-import utils.aws.Aws4RequestSigner
+import play.libs.Json
+import play.api.http.Status
+import utils.aws.{Aws4Cripto, Aws4RequestSigner}
 
 import scala.concurrent.{ExecutionContext, Future}
-import scala.util.{Failure, Success}
 
 class GitHubRepositoryImpl @Inject()(
   ws: WSClient,
@@ -46,14 +49,14 @@ class GitHubRepositoryImpl @Inject()(
       }
   }
 
-  override def getUserInfo(authToken: String): Future[Either[InvalidCode, GitHubUser]] = {
+  override def getUserInfo(authToken: String): Future[Either[InvalidGitUser, User]] = {
     ws.url("https://api.github.com/user")
       .withHttpHeaders("Authorization" -> s"token ${authToken}")
       .get()
       .map { implicit resp =>
         this.statusCheck
         logger.info(s"github user: ${resp.body}")
-        Right(GitHubUser())
+        Right(this.convertToUser)
       }
   }
 
@@ -93,7 +96,26 @@ class GitHubRepositoryImpl @Inject()(
       .map { resp => logger.warn(s"ess wsclient result... status:${resp.status}, ${resp.statusText}... body:${resp.body}... header:${resp.headers.toString}... underlying:${resp.underlying.toString}") }
   }
 
-  private def statusCheck(implicit wsResponse: WSResponse) =
-    if (wsResponse.status < 300) throw new RuntimeException("トークン取得API失敗")
+  private def statusCheck(implicit resp: WSResponse) =
+    if (resp.status != Status.OK ) throw new RuntimeException("トークン取得API失敗")
 
+  private def convertToUser(
+    implicit resp: WSResponse,
+    tokenExpiredAt: LocalDateTime = LocalDateTime.now.plusDays(1),
+    createdAt: LocalDateTime = LocalDateTime.now,
+    updatedAt: LocalDateTime = LocalDateTime.now
+  ): User = {
+    val json = Json.parse(resp.body)
+    User(
+      id = json.findValue("id").intValue,
+      name = json.findValue("name").asText,
+      gitUrl = json.findValue("url").asText,
+      gitName = json.findValue("login").asText,
+      avatarUrl = json.findValue("avatar_url").asText,
+      accessToken = Some(Aws4Cripto.hexOf(json.toString.getBytes)),
+      tokenExpiredAt = tokenExpiredAt,
+      createdAt = createdAt,
+      updatedAt = updatedAt
+    )
+  }
 }

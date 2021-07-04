@@ -5,7 +5,7 @@ import java.security.MessageDigest
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
-private[aws] object Aws4Cripto {
+object Aws4Cripto {
 
   val Algorithm = "AWS4-HMAC-SHA256"
   val signAlgorithm = "HmacSHA256"

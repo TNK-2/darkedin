@@ -8,7 +8,7 @@ case class User(
   gitUrl: String,
   gitName: String,
   avatarUrl: String,
-  accessToken: String,
+  accessToken: Option[String],
   tokenExpiredAt: LocalDateTime,
   createdAt: LocalDateTime,
   updatedAt: LocalDateTime
