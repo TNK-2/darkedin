@@ -12,7 +12,7 @@ class GithubLoginService @Inject()(
   implicit ec: ExecutionContext
 ) {
 
-  def execLogin(code: String): Future[User] = {
+  def execLogin(code: String): Future[User] =
     for {
       token <- gitHubRepository
         .getAuthToken(code)
@@ -20,21 +20,7 @@ class GithubLoginService @Inject()(
       user  <- gitHubRepository
         .getUserInfo(token)
         .map(_.right.get)
-    } yield {
-      User(
-        id = ???,
-        name = ???,
-        gitUrl = ???,
-        gitName = ???,
-        avatarUrl = ???,
-        accessToken = ???,
-        tokenExpiredAt = ???,
-        createdAt = ???,
-        updatedAt = ???
-      )
-    }
-
-  }
+    } yield user
 
   def esTest(): Future[Unit] =
     gitHubRepository.esTest()

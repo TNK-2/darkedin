@@ -2,4 +2,3 @@
 GET     /login                           controllers.LoginController.index()
 GET     /login/exec                      controllers.LoginController.execLogin()
 GET     /estest                          controllers.LoginController.esTest()
-

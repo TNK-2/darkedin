@@ -112,7 +112,7 @@ class GitHubRepositoryImpl @Inject()(
       gitUrl = json.findValue("url").asText,
       gitName = json.findValue("login").asText,
       avatarUrl = json.findValue("avatar_url").asText,
-      accessToken = Some(Aws4Cripto.hexOf(json.toString.getBytes)),
+      accessToken = Some(Aws4Cripto.hexOf(json.toString.getBytes).substring(0, 63)),
       tokenExpiredAt = tokenExpiredAt,
       createdAt = createdAt,
       updatedAt = updatedAt
