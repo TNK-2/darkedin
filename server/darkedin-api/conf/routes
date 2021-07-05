@@ -1,4 +1,4 @@
 
-GET     /login                           controllers.LoginController.index()
-GET     /login/exec                      controllers.LoginController.execLogin()
-GET     /estest                          controllers.LoginController.esTest()
+GET      /login                           controllers.LoginController.index()
+POST     /login/exec                      controllers.LoginController.execLogin()
+GET      /estest                          controllers.LoginController.esTest()

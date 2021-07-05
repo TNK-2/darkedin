@@ -1,7 +1,7 @@
 package domain.repositories
 
 import domain.models.User
-import domain.models.exception.{InvalidCode, InvalidGitUser}
+import domain.models.exception.auth.{InvalidCode, InvalidGitUser}
 
 import scala.concurrent.Future
 

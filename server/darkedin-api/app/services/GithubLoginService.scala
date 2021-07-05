@@ -2,12 +2,15 @@ package services
 
 import domain.models.User
 import infra.repositories.api.GitHubRepositoryImpl
-import javax.inject.Inject
+import infra.repositories.db.UserRepositoryImpl
+import javax.inject.{Inject, Singleton}
 
 import scala.concurrent.{ExecutionContext, Future}
 
+@Singleton
 class GithubLoginService @Inject()(
-  gitHubRepository: GitHubRepositoryImpl
+  gitHubRepository: GitHubRepositoryImpl,
+  userRepository: UserRepositoryImpl
 )(
   implicit ec: ExecutionContext
 ) {
@@ -20,6 +23,7 @@ class GithubLoginService @Inject()(
       user  <- gitHubRepository
         .getUserInfo(token)
         .map(_.right.get)
+      _ <- userRepository.save(user)
     } yield user
 
   def esTest(): Future[Unit] =

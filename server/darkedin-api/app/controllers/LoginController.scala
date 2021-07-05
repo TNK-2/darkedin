@@ -3,8 +3,8 @@ package controllers
 import conf.ApplicationConf
 import javax.inject.{Inject, Singleton}
 import play.api.Logger
-import play.api.libs.json.{Reads, __}
 import play.api.mvc.{AnyContent, BaseController, ControllerComponents, Request}
+import play.api.libs.json.{Json, Reads}
 import services.GithubLoginService
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -25,9 +25,12 @@ class LoginController  @Inject()(
     Redirect(appConf.gitAuthPath)
   }
 
-  def execLogin() =  Action.async(parse.json) { req =>
-    val code = req.getQueryString("code").get
-    githubLoginService.execLogin(code).map { user =>
+  implicit val rds = Json.reads[ExecLoginRequest]
+  case class ExecLoginRequest(code: String)
+
+  def execLogin() =  Action.async(parse.json) { implicit req =>
+    val execLoginReq = req.body.validate[ExecLoginRequest].get
+    githubLoginService.execLogin(execLoginReq.code).map { user =>
       Ok(user.accessToken.get)
     }
   }

@@ -4,9 +4,9 @@ import java.time.LocalDateTime
 
 import conf.ApplicationConf
 import domain.models.User
-import domain.models.exception.{InvalidCode, InvalidGitUser}
+import domain.models.exception.auth.{InvalidCode, InvalidGitUser}
 import domain.repositories.GitHubRepository
-import javax.inject.Inject
+import javax.inject.{Inject, Singleton}
 import play.api.Logger
 import play.api.libs.ws.{WSClient, WSResponse}
 import play.api.libs.ws.ahc.AhcCurlRequestLogger
@@ -16,6 +16,7 @@ import utils.aws.{Aws4Cripto, Aws4RequestSigner}
 
 import scala.concurrent.{ExecutionContext, Future}
 
+@Singleton
 class GitHubRepositoryImpl @Inject()(
   ws: WSClient,
   appConf: ApplicationConf
@@ -97,7 +98,7 @@ class GitHubRepositoryImpl @Inject()(
   }
 
   private def statusCheck(implicit resp: WSResponse) =
-    if (resp.status != Status.OK ) throw new RuntimeException("トークン取得API失敗")
+    if ( resp.status != Status.OK ) throw new RuntimeException("トークン取得API失敗")
 
   private def convertToUser(
     implicit resp: WSResponse,
