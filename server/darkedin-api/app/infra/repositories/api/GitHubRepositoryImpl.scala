@@ -36,28 +36,25 @@ class GitHubRepositoryImpl @Inject()(
          |}
          |""".stripMargin
 
+    logger.warn(s"query: ${query}")
     ws.url(appConf.gitAccessTokenPath)
       .withHttpHeaders("Content-Type" -> "application/json")
       .post(query)
-      .map { implicit resp =>
-        this.statusCheck
-        resp.body.split("&").headOption match {
-          case Some(str) if str.contains("access_token=") =>
-            Right(resp.body.split("=").last)
-          case _ =>
-            Left(InvalidCode("不正なレスポンス", resp.body))
-        }
+      .map { resp =>
+        this.statusCheck(resp, { () => throw new RuntimeException(s"トークン取得API失敗. status: ${resp.status}. body: ${resp.body}") })
+        this.extractToken(resp.body)
       }
   }
 
   override def getUserInfo(authToken: String): Future[Either[InvalidGitUser, User]] = {
+    logger.warn(s"auth token : ${authToken}")
     ws.url("https://api.github.com/user")
       .withHttpHeaders("Authorization" -> s"token ${authToken}")
       .get()
-      .map { implicit resp =>
-        this.statusCheck
+      .map { resp =>
+        this.statusCheck(resp, { () => throw new RuntimeException(s"ユーザー取得API失敗. status: ${resp.status}. body: ${resp.body}") })
         logger.info(s"github user: ${resp.body}")
-        Right(this.convertToUser)
+        Right(this.convertToUser(resp))
       }
   }
 
@@ -97,11 +94,25 @@ class GitHubRepositoryImpl @Inject()(
       .map { resp => logger.warn(s"ess wsclient result... status:${resp.status}, ${resp.statusText}... body:${resp.body}... header:${resp.headers.toString}... underlying:${resp.underlying.toString}") }
   }
 
-  private def statusCheck(implicit resp: WSResponse) =
-    if ( resp.status != Status.OK ) throw new RuntimeException("トークン取得API失敗")
+  private def statusCheck(resp: WSResponse, errHandle: () => Unit) =
+    if ( resp.status != Status.OK ) errHandle()
+
+  private[api] def extractToken(responseBody: String): Either[InvalidCode, String] = {
+    logger.warn(s"resp body : $responseBody")
+    responseBody
+      .split("&")
+      .filter(_.contains("access_token="))
+      .headOption match {
+      case Some(str) =>
+        Right(str.split("=").last)
+      case _ =>
+        Left(InvalidCode("不正なレスポンス", responseBody))
+    }
+  }
+
 
   private def convertToUser(
-    implicit resp: WSResponse,
+    resp: WSResponse,
     tokenExpiredAt: LocalDateTime = LocalDateTime.now.plusDays(1),
     createdAt: LocalDateTime = LocalDateTime.now,
     updatedAt: LocalDateTime = LocalDateTime.now
