@@ -1,6 +1,7 @@
--- !Ups
+
+# --- !Ups
 create table user (
-    id                  int primary key,
+    id                  int not null primary key,
     name                varchar(255) not null,
     git_name            varchar(255) not null,
     git_url             varchar(255) not null,
@@ -11,5 +12,5 @@ create table user (
     updated_at          datetime(6)  not null
 );
 
--- !Downs
-drop table user;
+# --- !Downs
+drop table "user";
