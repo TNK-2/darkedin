@@ -47,7 +47,7 @@ class GitHubRepositoryImpl @Inject()(
   }
 
   override def getUserInfo(authToken: String): Future[Either[InvalidGitUser, User]] = {
-    logger.warn(s"auth token : ${authToken}")
+    logger.warn(s"auth token : $authToken")
     ws.url("https://api.github.com/user")
       .withHttpHeaders("Authorization" -> s"token ${authToken}")
       .get()
@@ -104,7 +104,9 @@ class GitHubRepositoryImpl @Inject()(
       .filter(_.contains("access_token="))
       .headOption match {
       case Some(str) =>
-        Right(str.split("=").last)
+        val token = str.split("=").last
+        logger.warn(s"extracted token : $token")
+        Right(token)
       case _ =>
         Left(InvalidCode("不正なレスポンス", responseBody))
     }

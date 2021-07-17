@@ -21,6 +21,7 @@ libraryDependencies += "software.amazon.awssdk" % "core" % AWSJavaSdkVersion
 libraryDependencies += "software.amazon.awssdk" % "regions" % AWSJavaSdkVersion
 libraryDependencies += "com.sksamuel.elastic4s" %% "elastic4s-core" % "7.10.7"
 libraryDependencies += "org.apache.httpcomponents" % "httpclient" % "4.5.3"
+libraryDependencies += "mysql" % "mysql-connector-java" % "8.0.25"
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.pon.dinapp.controllers._"
 
