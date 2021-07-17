@@ -15,7 +15,6 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0
 libraryDependencies += "org.mockito" % "mockito-core" % "3.11.2" % "test"
 libraryDependencies += "com.typesafe.play" %% "play-slick" % "5.0.0"
 libraryDependencies += "com.typesafe.play" %% "play-slick-evolutions" % "5.0.0"
-libraryDependencies += "com.h2database" % "h2" % "1.4.192"
 libraryDependencies += "software.amazon.awssdk" % "auth" % AWSJavaSdkVersion
 libraryDependencies += "software.amazon.awssdk" % "core" % AWSJavaSdkVersion
 libraryDependencies += "software.amazon.awssdk" % "regions" % AWSJavaSdkVersion

@@ -47,7 +47,6 @@ class GitHubRepositoryImpl @Inject()(
   }
 
   override def getUserInfo(authToken: String): Future[Either[InvalidGitUser, User]] = {
-    logger.warn(s"auth token : $authToken")
     ws.url("https://api.github.com/user")
       .withHttpHeaders("Authorization" -> s"token ${authToken}")
       .get()
@@ -126,7 +125,7 @@ class GitHubRepositoryImpl @Inject()(
       gitUrl = json.findValue("url").asText,
       gitName = json.findValue("login").asText,
       avatarUrl = json.findValue("avatar_url").asText,
-      accessToken = Some(Aws4Cripto.hexOf(json.toString.getBytes).substring(0, 63)),
+      accessToken = Some(scala.util.Random.alphanumeric.take(64).mkString),
       tokenExpiredAt = tokenExpiredAt,
       createdAt = createdAt,
       updatedAt = updatedAt

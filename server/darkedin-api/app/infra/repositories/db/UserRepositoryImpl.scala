@@ -40,16 +40,18 @@ class UserRepositoryImpl @Inject()
 
   // upsert
   override def save(user: User): Future[Int] = db.run(
-    Users += UserTableRow(
-      id = user.id,
-      name = user.name,
-      gitUrl = user.gitUrl,
-      gitName = user.gitName,
-      avatarUrl = user.avatarUrl,
-      accessToken = user.accessToken.getOrElse(""),
-      tokenExpiredAt = Timestamp.valueOf(user.tokenExpiredAt),
-      createdAt = Timestamp.valueOf(user.createdAt),
-      updatedAt = Timestamp.valueOf(user.updatedAt)
+    Users.insertOrUpdate(
+      UserTableRow(
+        id = user.id,
+        name = user.name,
+        gitUrl = user.gitUrl,
+        gitName = user.gitName,
+        avatarUrl = user.avatarUrl,
+        accessToken = user.accessToken.getOrElse(""),
+        tokenExpiredAt = Timestamp.valueOf(user.tokenExpiredAt),
+        createdAt = Timestamp.valueOf(user.createdAt),
+        updatedAt = Timestamp.valueOf(user.updatedAt)
+      )
     )
   )
 
